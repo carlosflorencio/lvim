@@ -6,6 +6,9 @@ lvim.keys.normal_mode["<C-c>"] = ":BufferKill<CR>" -- close buffer
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 
+-- Search and replace word under cursor using <F2>
+vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
+
 -- jumps
 lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_next
 lvim.keys.normal_mode["]e"] = vim.diagnostic.goto_prev
@@ -26,12 +29,13 @@ lvim.lsp.buffer_mappings.normal_mode["gpi"] = { "<cmd>Glance implementations<cr>
 -- move the cursor without leaving insert mode
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
 lvim.keys.insert_mode["<A-l>"] = "<Right>"
+lvim.keys.insert_mode["<s-tab>"] = "<C-d>" -- make shift-tab work normally
 
 -- paste most recent yank
 lvim.keys.visual_mode["p"] = '"0p'
 lvim.keys.visual_mode["P"] = '"0P'
 
-lvim.builtin.which_key.mappings["q"] = { "<cmd>qa", "Quit All" }
+lvim.builtin.which_key.mappings["q"] = { "<cmd>qa<cr>", "Quit All" }
 lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings["gy"] = "Github Link" -- git linker plugin
@@ -112,3 +116,5 @@ lvim.builtin.which_key.mappings["r"] = {
   l = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Git Rollback Line" },
   f = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Git File" },
 }
+
+lvim.builtin.which_key.mappings["p"]["p"] = { "<cmd>Glow<cr>", "Preview" }

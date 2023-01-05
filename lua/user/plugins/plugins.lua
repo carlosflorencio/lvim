@@ -13,11 +13,6 @@ lvim.plugins = {
   { "nvim-telescope/telescope-dap.nvim" },
   { "wakatime/vim-wakatime" },
   {
-    -- highlight matching words under the cursor
-    "RRethy/vim-illuminate",
-    event = "BufRead"
-  },
-  {
     "folke/todo-comments.nvim",
     event = "BufRead",
     config = function()
@@ -92,9 +87,7 @@ lvim.plugins = {
     "npxbr/glow.nvim",
     ft = { "markdown" },
     config = function()
-      require("glow").setup({
-        width = 120
-      })
+      require("user.plugins.configs.glow")
     end
     -- run = "yay -S glow"
   },
@@ -103,6 +96,9 @@ lvim.plugins = {
     "ruifm/gitlinker.nvim",
     event = "BufRead",
     requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("user.plugins.configs.gitlinker")
+    end
   },
   {
     "pwntester/octo.nvim",
