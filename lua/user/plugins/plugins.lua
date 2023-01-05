@@ -3,6 +3,7 @@ lvim.plugins = {
   { "tomasiser/vim-code-dark" },
   { "rebelot/kanagawa.nvim" },
   { "vim-scripts/argtextobj.vim" },
+  { "szw/vim-maximizer" },
   { "ethanholz/nvim-lastplace",
     config = function()
       require("nvim-lastplace").setup()

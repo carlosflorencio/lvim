@@ -31,6 +31,7 @@ lvim.keys.insert_mode["<A-l>"] = "<Right>"
 lvim.keys.visual_mode["p"] = '"0p'
 lvim.keys.visual_mode["P"] = '"0P'
 
+lvim.builtin.which_key.mappings["q"] = { "<cmd>qa", "Quit All" }
 lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings["gy"] = "Github Link" -- git linker plugin
@@ -57,7 +58,15 @@ lvim.builtin.which_key.mappings["f"] = {
   },
 }
 
-lvim.builtin.which_key.mappings["s"]["t"] = { "<cmd>SymbolsOutline<CR>", "Toggle SymbolsOutline" }
+lvim.builtin.which_key.mappings["s"] = {
+  name = "Splits",
+  t    = { "<cmd>SymbolsOutline<CR>", "Toggle SymbolsOutline" },
+  v    = { "<cmd>vsplit<cr>", "Split Vertically" },
+  h    = { "<cmd>split<cr>", "Split Horizontally" },
+  m    = { "<cmd>MaximizerToggle<CR>", "Toggle Maximize" },
+  c    = { "<cmd>close<CR>", "Close split" },
+}
+
 
 lvim.builtin.which_key.mappings["m"] = {
   name = "Marks",
@@ -96,4 +105,10 @@ lvim.builtin.which_key.mappings["o"] = {
   name = "+Organize",
   i = { "<cmd>TypescriptOrganizeImports<cr>", "TS Organize Imports" },
   a = { "<cmd>TypescriptAddMissingImports<cr>", "TS Add missing Imports" },
+}
+
+lvim.builtin.which_key.mappings["r"] = {
+  name = "+Refactor / Rollback",
+  l = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Git Rollback Line" },
+  f = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Git File" },
 }
