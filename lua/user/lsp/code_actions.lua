@@ -2,7 +2,7 @@
 local code_actions = require("lvim.lsp.null-ls.code_actions")
 code_actions.setup({
   {
-    name = "eslint_d",
+    name = "eslint",
     filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
   },
 })
