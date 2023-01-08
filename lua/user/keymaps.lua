@@ -44,7 +44,7 @@ lvim.lsp.buffer_mappings.normal_mode["gpi"] = { "<cmd>Glance implementations<cr>
 -- move the cursor without leaving insert mode
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
 lvim.keys.insert_mode["<A-l>"] = "<Right>"
-lvim.keys.insert_mode["<s-tab>"] = "<C-d>" -- make shift-tab work normally
+-- lvim.keys.insert_mode["<s-tab>"] = "<C-d>" -- make shift-tab work normally
 lvim.keys.insert_mode["<c-p>"] = "<ESC>p"
 
 -- paste most recent yank
@@ -118,6 +118,10 @@ lvim.builtin.which_key.mappings["t"] = {
     "<cmd>NvimTreeToggle<cr><cmd>lua require'centerpad'.toggle{ leftpad = 40, rightpad = 40 }<cr>",
     "Center Buffer",
   },
+  -- t = {
+  --   "<cmd>NoNeckPain<cr>",
+  --   "Center Buffer",
+  -- },
   g = { "<cmd>TroubleToggle<cr>", "trouble" },
   w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
   d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },

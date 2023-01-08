@@ -25,6 +25,7 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "eslint" })
 -- Manually setup
 require("user.lsp.providers.denols")
 require("user.lsp.providers.tsserver")
+require("user.lsp.providers.jsonls")
 
 -- Enable
 require("lvim.lsp.manager").setup("marksman")

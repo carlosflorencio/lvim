@@ -4,7 +4,7 @@ lvim.plugins = {
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
   { "szw/vim-maximizer" }, -- toggle maximise split
   { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
-  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
   { "ethanholz/nvim-lastplace",
     config = function()
       require("nvim-lastplace").setup()
@@ -172,8 +172,33 @@ lvim.plugins = {
       require("user.plugins.configs.boole")
     end
   },
+  {
+    -- jsonls schemas
+    "b0o/schemastore.nvim",
+  },
   { "elihunter173/dirbuf.nvim" }, -- edit fs as a buffer
   { "smithbm2316/centerpad.nvim", event = "BufRead" },
+  -- {
+  --   -- center buffer
+  --   "shortcuts/no-neck-pain.nvim",
+  --   tag = "*",
+  --   config = function()
+  --     require("no-neck-pain").setup({
+  --       toggleMapping = false
+  --     })
+  --   end
+  -- },
+
+  {
+    -- insert mode navigation on tab
+    "abecodes/tabout.nvim",
+    event = "InsertEnter",
+    wants = "nvim-treesitter",
+    after = "nvim-cmp",
+    config = function()
+      require("tabout").setup()
+    end,
+  },
   {
     -- reminder to commit more frequently
     "redve-dev/neovim-git-reminder",
