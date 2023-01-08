@@ -1,9 +1,11 @@
 lvim.plugins = {
-  { "olimorris/onedarkpro.nvim" },
-  { "tomasiser/vim-code-dark" },
-  { "rebelot/kanagawa.nvim" },
-  { "vim-scripts/argtextobj.vim" },
-  { "szw/vim-maximizer" },
+  { "olimorris/onedarkpro.nvim" }, -- theme
+  { "tomasiser/vim-code-dark" }, -- theme
+  { "rebelot/kanagawa.nvim" }, -- theme
+  { "vim-scripts/argtextobj.vim" }, -- motions for arguments
+  { "szw/vim-maximizer" }, -- toggle maximise split
+  { "RRethy/nvim-treesitter-textsubjects" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
   { "ethanholz/nvim-lastplace",
     config = function()
       require("nvim-lastplace").setup()
@@ -50,13 +52,6 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
-  },
-  {
-    "ahmedkhalf/lsp-rooter.nvim",
-    event = "BufRead",
-    config = function()
-      require("lsp-rooter").setup()
-    end,
   },
   {
     "dnlhc/glance.nvim",
@@ -111,10 +106,45 @@ lvim.plugins = {
       require("octo").setup()
     end,
   },
+  -- {
+  --   "folke/zen-mode.nvim",
+  --   config = function()
+  --     require("zen-mode").setup({
+  --       plugins = {
+  --         options = {
+  --           enabled = true,
+  --           ruler = true, -- disables the ruler text in the cmd line area
+  --           showcmd = true, -- disables the command in the last line of the screen
+  --         },
+  --         gitsigns = { enabled = true }
+  --       }
+  --     })
+  --   end
+  -- },
   {
-    "folke/zen-mode.nvim",
+    -- require("notify")("My super important message")
+    "rcarriga/nvim-notify"
+  },
+  { "elihunter173/dirbuf.nvim" }, -- edit fs as a buffer
+  { "smithbm2316/centerpad.nvim", event = "BufRead" },
+  {
+    -- reminder to commit more frequently
+    "redve-dev/neovim-git-reminder",
+    requires = { "rcarriga/nvim-notify" },
+    event = "BufRead",
     config = function()
-      require("zen-mode").setup()
+      require("CommitReminder").setup({
+        delay = 5,
+        required_changes = 20,
+        remind_on_save_only = true
+      })
+    end
+  },
+  { "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup({
+        mappings = { '<C-u>', '<C-d>' },
+      })
     end
   },
   {
@@ -128,7 +158,21 @@ lvim.plugins = {
     config = function()
       require("telescope").load_extension "harpoon"
     end
-  }
+  },
+  {
+    "simrat39/inlay-hints.nvim",
+    config = function()
+      require("user.plugins.configs.inlay-hints")
+    end
+  },
+  {
+    -- needs to be the last one, otherwise PackerSync fails on the first setup install
+    "ahmedkhalf/lsp-rooter.nvim",
+    event = "BufRead",
+    config = function()
+      require("lsp-rooter").setup()
+    end,
+  },
 }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile

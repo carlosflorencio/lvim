@@ -1,13 +1,34 @@
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
+-- use c-e & c-y for scrolling
+lvim.keys.normal_mode["zj"] = "o<ESC>k"
+lvim.keys.normal_mode["zk"] = "O<ESC>j"
+lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
 lvim.keys.normal_mode["<C-c>"] = ":BufferKill<CR>" -- close buffer
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
 
 -- Search and replace word under cursor using <F2>
 vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
+
+-- vim.cmd [[
+-- function! JumpBackAndClose()
+--     let startBuffer = bufname('%')
+--     execute "normal \<C-O>"
+--     let nowBuffer = bufname('%')
+--     if nowBuffer != startBuffer
+--         execute "bd " . startBuffer
+--     endif
+-- endfunction
+-- ]]
+
+-- lvim.keys.normal_mode["<C-p>"] = "<cmd>call JumpBackAndClose()<CR>"
+
+lvim.keys.visual_mode["<C-p>"] = "y'>p"
 
 -- jumps
 lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_next
@@ -16,8 +37,7 @@ lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
 
 -- harpoon
-lvim.keys.normal_mode["<tab>"] = "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>"
-lvim.keys.normal_mode["<s-tab>"] = "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<cr>"
+lvim.keys.normal_mode["<s-tab>"] = "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>"
 
 -- lSP
 lvim.lsp.buffer_mappings.normal_mode["gi"] = { vim.lsp.buf.implementation, "Go to implementation" }
@@ -32,8 +52,8 @@ lvim.keys.insert_mode["<A-l>"] = "<Right>"
 lvim.keys.insert_mode["<s-tab>"] = "<C-d>" -- make shift-tab work normally
 
 -- paste most recent yank
-lvim.keys.visual_mode["p"] = '"0p'
-lvim.keys.visual_mode["P"] = '"0P'
+-- lvim.keys.visual_mode["p"] = '"0p'
+-- lvim.keys.visual_mode["P"] = '"0P'
 
 lvim.builtin.which_key.mappings["q"] = { "<cmd>qa<cr>", "Quit All" }
 lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
@@ -43,15 +63,14 @@ lvim.builtin.which_key.mappings["gy"] = "Github Link" -- git linker plugin
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-  c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+  c = { "<cmd>Telescope command_history initial_mode=normal<cr>", "Command History" },
   a = { "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>", "Find All Files" },
   f = { "<cmd>Telescope find_files<cr>", "Find Project File" },
   h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-  H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
   m = { require("lvim.lsp.utils").format, "Format" },
-  r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-  R = { "<cmd>Telescope registers<cr>", "Registers" },
+  r = { "<cmd>Telescope oldfiles initial_mode=normal<cr>", "Open Recent File" },
+  R = { "<cmd>Telescope registers initial_mode=normal<cr>", "Registers" },
   w = { "<cmd>Telescope live_grep<cr>", "Text" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
@@ -70,7 +89,6 @@ lvim.builtin.which_key.mappings["s"] = {
   m    = { "<cmd>MaximizerToggle<CR>", "Toggle Maximize" },
   c    = { "<cmd>close<CR>", "Close split" },
 }
-
 
 lvim.builtin.which_key.mappings["m"] = {
   name = "Marks",
@@ -93,9 +111,13 @@ lvim.builtin.which_key.mappings["c"] = {
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Toggle/Diagnostics",
+  -- t = {
+  --   require("zen-mode").toggle,
+  --   "Zen Mode",
+  -- },
   t = {
-    require("zen-mode").toggle,
-    "Zen Mode",
+    "<cmd>NvimTreeToggle<cr><cmd>lua require'centerpad'.toggle{ leftpad = 40, rightpad = 40 }<cr>",
+    "Center Buffer",
   },
   g = { "<cmd>TroubleToggle<cr>", "trouble" },
   w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
@@ -118,3 +140,9 @@ lvim.builtin.which_key.mappings["r"] = {
 }
 
 lvim.builtin.which_key.mappings["p"]["p"] = { "<cmd>Glow<cr>", "Preview" }
+lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<cr>", "Floating file explorer Lir" }
+lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers previewer=false ignore_current_buffer=true sort_mru=true<cr>",
+  "Find" }
+
+
+lvim.builtin.which_key.vmappings["i"] = {}
