@@ -131,6 +131,17 @@ lvim.plugins = {
     "rcarriga/nvim-notify"
   },
   {
+    -- rename react hooks args
+    "olrtg/nvim-rename-state",
+    ft = {
+      "typescriptreact",
+      "javascriptreact",
+    },
+    config = function()
+      require('nvim-rename-state').setup()
+    end
+  },
+  {
     -- autocomplete lists
     "dkarter/bullets.vim",
     ft = {

@@ -149,6 +149,8 @@ lvim.builtin.which_key.mappings["r"] = {
   f = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Git File" },
 }
 
+lvim.builtin.which_key.mappings["l"]["R"] = { "<cmd>RenameState<cr>", "Rename React Hooks args" }
+
 lvim.builtin.which_key.mappings["p"]["p"] = { "<cmd>Glow<cr>", "Preview" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<cr>", "Floating file explorer Lir" }
 lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
