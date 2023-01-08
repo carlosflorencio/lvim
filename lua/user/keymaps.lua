@@ -15,19 +15,6 @@ lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
 -- Search and replace word under cursor using <F2>
 vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
 
--- vim.cmd [[
--- function! JumpBackAndClose()
---     let startBuffer = bufname('%')
---     execute "normal \<C-O>"
---     let nowBuffer = bufname('%')
---     if nowBuffer != startBuffer
---         execute "bd " . startBuffer
---     endif
--- endfunction
--- ]]
-
--- lvim.keys.normal_mode["<C-p>"] = "<cmd>call JumpBackAndClose()<CR>"
-
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
 
 -- yanky ring
