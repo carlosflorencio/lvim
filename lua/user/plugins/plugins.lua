@@ -131,6 +131,16 @@ lvim.plugins = {
     "rcarriga/nvim-notify"
   },
   {
+    -- autocomplete lists
+    "dkarter/bullets.vim",
+    ft = {
+      "markdown",
+      "text",
+      "tex",
+      "plaintex",
+    },
+  },
+  {
     -- expand <C-a>/<C-x> toggles increments
     "nat-418/boole.nvim",
     config = function()

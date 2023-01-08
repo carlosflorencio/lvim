@@ -1,7 +1,10 @@
 lvim.colorscheme = 'tokyonight'
 lvim.log.level = "warn"
 lvim.debug = false
+
+-- Toggle via :LvimToggleFormatOnSave
 lvim.format_on_save.enabled = true
+-- lvim.format_on_save.pattern = "*/web/*"
 
 vim.opt.shell = "/bin/sh" -- fish is slow
 vim.opt.smartindent = false -- needs to be false for correct tsx indentation
