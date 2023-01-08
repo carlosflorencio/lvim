@@ -199,6 +199,16 @@ lvim.plugins = {
     event = "BufRead",
   },
   {
+    -- split join code
+    'Wansmer/treesj',
+    requires = { 'nvim-treesitter' },
+    config = function()
+      require('treesj').setup({
+        use_default_keymaps = false,
+      })
+    end,
+  },
+  {
     -- yank ring
     "gbprod/yanky.nvim",
     config = function()

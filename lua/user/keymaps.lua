@@ -51,6 +51,12 @@ lvim.keys.insert_mode["<c-p>"] = "<ESC>p"
 -- lvim.keys.visual_mode["p"] = '"0p'
 -- lvim.keys.visual_mode["P"] = '"0P'
 
+
+lvim.builtin.which_key.mappings["h"] = {
+  name = "misc",
+  s = { "<cmd>TSJToggle<cr>", "Toggle split node under cursor" }
+}
+
 lvim.builtin.which_key.mappings["q"] = { "<cmd>qa<cr>", "Quit All" }
 lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
