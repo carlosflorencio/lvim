@@ -50,6 +50,7 @@ lvim.lsp.buffer_mappings.normal_mode["gpi"] = { "<cmd>Glance implementations<cr>
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
 lvim.keys.insert_mode["<A-l>"] = "<Right>"
 lvim.keys.insert_mode["<s-tab>"] = "<C-d>" -- make shift-tab work normally
+lvim.keys.insert_mode["<c-p>"] = "p"
 
 -- paste most recent yank
 -- lvim.keys.visual_mode["p"] = '"0p'
@@ -141,8 +142,6 @@ lvim.builtin.which_key.mappings["r"] = {
 
 lvim.builtin.which_key.mappings["p"]["p"] = { "<cmd>Glow<cr>", "Preview" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<cr>", "Floating file explorer Lir" }
+lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
 lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers previewer=false ignore_current_buffer=true sort_mru=true<cr>",
   "Find" }
-
-
-lvim.builtin.which_key.vmappings["i"] = {}
