@@ -1,0 +1,8 @@
+{
+  "Lua": {
+    "hint": {
+      "enable": true,
+      "setType": false
+    }
+  }
+}

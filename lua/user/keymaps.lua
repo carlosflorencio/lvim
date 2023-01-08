@@ -30,6 +30,14 @@ vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
 
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
 
+-- yanky ring
+vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+
 -- jumps
 lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_next
 lvim.keys.normal_mode["]e"] = vim.diagnostic.goto_prev
@@ -50,7 +58,7 @@ lvim.lsp.buffer_mappings.normal_mode["gpi"] = { "<cmd>Glance implementations<cr>
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
 lvim.keys.insert_mode["<A-l>"] = "<Right>"
 lvim.keys.insert_mode["<s-tab>"] = "<C-d>" -- make shift-tab work normally
-lvim.keys.insert_mode["<c-p>"] = "p"
+lvim.keys.insert_mode["<c-p>"] = "<ESC>p"
 
 -- paste most recent yank
 -- lvim.keys.visual_mode["p"] = '"0p'

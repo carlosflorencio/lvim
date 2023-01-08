@@ -1,12 +1,10 @@
 lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
-  { "tomasiser/vim-code-dark" }, -- theme
-  { "rebelot/kanagawa.nvim" }, -- theme
   { "Yazeed1s/oh-lucy.nvim" }, -- theme
-  { "vim-scripts/argtextobj.vim" }, -- motions for arguments
+  { "wellle/targets.vim" }, -- motions for arguments, di, etc
   { "szw/vim-maximizer" }, -- toggle maximise split
-  { "RRethy/nvim-treesitter-textsubjects" },
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", before = "nvim-treesitter" },
   { "ethanholz/nvim-lastplace",
     config = function()
       require("nvim-lastplace").setup()
@@ -19,6 +17,12 @@ lvim.plugins = {
   { "metakirby5/codi.vim" }, -- scratch files
   { 'michaelb/sniprun', run = 'bash ./install.sh' }, -- inline run code
   { "wakatime/vim-wakatime" },
+  {
+    "asiryk/auto-hlsearch.nvim",
+    config = function()
+      require("auto-hlsearch").setup()
+    end
+  },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -65,12 +69,6 @@ lvim.plugins = {
     end
   },
   {
-    -- improved autocomplete on functions
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require "lsp_signature".on_attach() end,
-  },
-  {
     -- surround with selection hightlight
     "kylechui/nvim-surround",
     config = function()
@@ -78,10 +76,14 @@ lvim.plugins = {
     end
   },
   {
-    -- panel with info about the registers contents
-    "junegunn/vim-peekaboo"
+    -- floating window with registers when pressing ""
+    "gennaro-tedesco/nvim-peekup",
+    event = "BufRead",
+    config = function()
+      require('nvim-peekup.config').on_keystroke["delay"] = ''
+    end
   },
-  { "delphinus/vim-firestore" },
+  { "delphinus/vim-firestore", ft = { "firestore" } },
   {
     -- preview markdown, glow needs to be installed globally
     "npxbr/glow.nvim",
@@ -129,6 +131,18 @@ lvim.plugins = {
   {
     -- require("notify")("My super important message")
     "rcarriga/nvim-notify"
+  },
+  {
+    -- convert "${}" to `${}`
+    "axelvc/template-string.nvim",
+    event = "BufRead",
+    ft = {
+      "javascriptreact",
+      "typescriptreact"
+    },
+    config = function()
+      require("template-string").setup()
+    end
   },
   {
     -- rename react hooks args
@@ -184,6 +198,13 @@ lvim.plugins = {
     "sindrets/diffview.nvim",
     event = "BufRead",
   },
+  {
+    -- yank ring
+    "gbprod/yanky.nvim",
+    config = function()
+      require("user.plugins.configs.yanky")
+    end
+  },
   { "ThePrimeagen/harpoon",
     requires = {
       "nvim-telescope/telescope.nvim"
@@ -197,6 +218,14 @@ lvim.plugins = {
     config = function()
       require("user.plugins.configs.inlay-hints")
     end
+  },
+  {
+    -- improved autocomplete on functions
+    "ray-x/lsp_signature.nvim",
+    -- event = "BufRead",
+    config = function()
+      require("user.plugins.configs.lsp_signature")
+    end,
   },
   {
     -- needs to be the last one, otherwise PackerSync fails on the first setup install
