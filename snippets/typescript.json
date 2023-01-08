@@ -2,11 +2,10 @@
   "DocBlock": {
     "prefix": "/**",
     "body": ["/**\n* $1\n*/", "$0"],
-    "description": "Log to the console"
+    "description": "DocBlock comment"
   },
-
   "Log to the console": {
-    "prefix": "cl",
+    "prefix": "log",
     "body": ["console.log($1)", "$0"],
     "description": "Log to the console"
   },

@@ -76,6 +76,7 @@ lvim.builtin.which_key.mappings["f"] = {
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
   s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+  S = { "<cmd>Telescope luasnip theme=dropdown<cr>", "Snippets" },
   t = {
     "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
     "Colorscheme with Preview",
@@ -100,9 +101,9 @@ lvim.builtin.which_key.mappings["m"] = {
 }
 
 lvim.builtin.which_key.mappings["c"] = {
-  name = "+Close",
+  name = "Close",
   a = {
-    name = "+All",
+    name = "All",
     b = {
       ":%bd|e#|bd#<cr>|'\"",
       "Close all buffers but the current one",
@@ -111,11 +112,7 @@ lvim.builtin.which_key.mappings["c"] = {
 }
 
 lvim.builtin.which_key.mappings["t"] = {
-  name = "+Toggle/Diagnostics",
-  -- t = {
-  --   require("zen-mode").toggle,
-  --   "Zen Mode",
-  -- },
+  name = "Toggle/Diagnostics",
   t = {
     "<cmd>NvimTreeToggle<cr><cmd>lua require'centerpad'.toggle{ leftpad = 40, rightpad = 40 }<cr>",
     "Center Buffer",
@@ -128,14 +125,26 @@ lvim.builtin.which_key.mappings["t"] = {
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
 
+lvim.builtin.which_key.mappings["d"] = {
+  name = "Debug",
+  d = { "<cmd>lua require('zippy').insert_print()<CR>", "Add log to current variable" },
+  r = { "<cmd>SnipRun<CR>", "Run the current line using Snip" },
+  s = { "<cmd>CodiNew<CR>", "Creates a new Scratch buffer" }
+}
+
+lvim.builtin.which_key.vmappings["d"] = {
+  name = "Debug",
+  r = { "<cmd>SnipRun<CR>", "Run the current block using Snip" }
+}
+
 lvim.builtin.which_key.mappings["o"] = {
-  name = "+Organize",
+  name = "Organize",
   i = { "<cmd>TypescriptOrganizeImports<cr>", "TS Organize Imports" },
   a = { "<cmd>TypescriptAddMissingImports<cr>", "TS Add missing Imports" },
 }
 
 lvim.builtin.which_key.mappings["r"] = {
-  name = "+Refactor / Rollback",
+  name = "Refactor / Rollback",
   l = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Git Rollback Line" },
   f = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Git File" },
 }

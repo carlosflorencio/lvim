@@ -2,6 +2,7 @@ lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
   { "tomasiser/vim-code-dark" }, -- theme
   { "rebelot/kanagawa.nvim" }, -- theme
+  { "Yazeed1s/oh-lucy.nvim" }, -- theme
   { "vim-scripts/argtextobj.vim" }, -- motions for arguments
   { "szw/vim-maximizer" }, -- toggle maximise split
   { "RRethy/nvim-treesitter-textsubjects" },
@@ -11,8 +12,12 @@ lvim.plugins = {
       require("nvim-lastplace").setup()
     end
   },
-  { "nvim-telescope/telescope-ui-select.nvim" },
+  { "PatschD/zippy.nvim", event = "BufRead" }, -- log variables under cursor
+  { "stevearc/dressing.nvim" }, -- improve vim ui's
   { "nvim-telescope/telescope-dap.nvim" },
+  { "benfowler/telescope-luasnip.nvim" },
+  { "metakirby5/codi.vim" }, -- scratch files
+  { 'michaelb/sniprun', run = 'bash ./install.sh' }, -- inline run code
   { "wakatime/vim-wakatime" },
   {
     "folke/todo-comments.nvim",
@@ -124,6 +129,13 @@ lvim.plugins = {
   {
     -- require("notify")("My super important message")
     "rcarriga/nvim-notify"
+  },
+  {
+    -- expand <C-a>/<C-x> toggles increments
+    "nat-418/boole.nvim",
+    config = function()
+      require("user.plugins.configs.boole")
+    end
   },
   { "elihunter173/dirbuf.nvim" }, -- edit fs as a buffer
   { "smithbm2316/centerpad.nvim", event = "BufRead" },
