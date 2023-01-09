@@ -44,12 +44,7 @@ lvim.lsp.buffer_mappings.normal_mode["gpi"] = { "<cmd>Glance implementations<cr>
 -- move the cursor without leaving insert mode
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
 lvim.keys.insert_mode["<A-l>"] = "<Right>"
--- lvim.keys.insert_mode["<s-tab>"] = "<C-d>" -- make shift-tab work normally
-lvim.keys.insert_mode["<c-p>"] = "<ESC>p"
-
--- paste most recent yank
--- lvim.keys.visual_mode["p"] = '"0p'
--- lvim.keys.visual_mode["P"] = '"0P'
+lvim.keys.insert_mode["<c-p>"] = "<ESC>p" -- paste in insert mode
 
 
 lvim.builtin.which_key.mappings["h"] = {
@@ -65,13 +60,14 @@ lvim.builtin.which_key.mappings["gy"] = "Github Link" -- git linker plugin
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+  d = { "<cmd>Telescope diagnostics<cr>", "LSP Diagnostics" },
   c = { "<cmd>Telescope command_history initial_mode=normal<cr>", "Command History" },
   a = { "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>", "Find All Files" },
   f = { "<cmd>Telescope find_files<cr>", "Find Project File" },
   h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
   m = { require("lvim.lsp.utils").format, "Format" },
-  r = { "<cmd>Telescope oldfiles initial_mode=normal<cr>", "Open Recent File" },
+  r = { "<cmd>Telescope oldfiles initial_mode=normal only_cwd=true<cr>", "Open Recent Files" },
   R = { "<cmd>Telescope registers initial_mode=normal<cr>", "Registers" },
   w = { "<cmd>Telescope live_grep<cr>", "Text" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },

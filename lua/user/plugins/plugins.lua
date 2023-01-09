@@ -172,10 +172,6 @@ lvim.plugins = {
       require("user.plugins.configs.boole")
     end
   },
-  {
-    -- jsonls schemas
-    "b0o/schemastore.nvim",
-  },
   { "elihunter173/dirbuf.nvim" }, -- edit fs as a buffer
   { "smithbm2316/centerpad.nvim", event = "BufRead" },
   -- {
