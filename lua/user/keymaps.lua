@@ -61,6 +61,7 @@ lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
   d = { "<cmd>Telescope diagnostics<cr>", "LSP Diagnostics" },
+  g = { "<cmd>Telescope git_status<cr>", "Git changed files" },
   c = { "<cmd>Telescope command_history initial_mode=normal<cr>", "Command History" },
   a = { "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>", "Find All Files" },
   f = { "<cmd>Telescope find_files<cr>", "Find Project File" },
@@ -157,3 +158,28 @@ lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<c
 lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
 lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers previewer=false ignore_current_buffer=true sort_mru=true<cr>",
   "Find" }
+
+
+lvim.builtin.which_key.on_config_done = function(wk)
+  -- Debug / Test
+  wk.register({
+    name = "Test / Debug",
+    t = {
+      name = "Test",
+      u = { '<cmd>lua require("neotest").run.run()<CR>', "Run nearest test under cursor" },
+      t = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', "Test file" }
+    },
+    d = {
+      name = "Debug",
+      u = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', "Debug nearest test under cursor" },
+      d = { '<cmd>lua require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"})<cr>', "Debug File" }
+    }
+  }, {
+    mode = "n", -- NORMAL mode
+    prefix = ",",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+  })
+end

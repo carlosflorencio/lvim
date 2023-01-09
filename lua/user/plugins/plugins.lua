@@ -130,7 +130,10 @@ lvim.plugins = {
   -- },
   {
     -- require("notify")("My super important message")
-    "rcarriga/nvim-notify"
+    "rcarriga/nvim-notify",
+    config = function()
+      require("user.plugins.configs.notify")
+    end,
   },
   {
     -- convert "${}" to `${}`
@@ -174,6 +177,18 @@ lvim.plugins = {
   },
   { "elihunter173/dirbuf.nvim" }, -- edit fs as a buffer
   { "smithbm2316/centerpad.nvim", event = "BufRead" },
+  {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      'haydenmeade/neotest-jest'
+    },
+    config = function()
+      require("user.plugins.configs.neotest")
+    end
+  },
   -- {
   --   -- center buffer
   --   "shortcuts/no-neck-pain.nvim",
