@@ -8,7 +8,7 @@ lvim.lsp.installer.setup.ensure_installed = {
   "bashls",
   "gopls",
   "marksman",
-  "taplo"
+  "taplo",
 }
 
 require("user.lsp.null-ls.formatters")

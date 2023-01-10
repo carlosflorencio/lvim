@@ -2,6 +2,13 @@
 
 Always a work in progress.
 
+## First setup
+
+- `:checkhealth`
+- `:Mason`, install:
+  - prettierd
+  - node-debug2-adapter
+
 ## Reset the state
 
 `rm -rf ~/.local/share/lunarvim`

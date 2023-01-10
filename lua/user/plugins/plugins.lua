@@ -194,7 +194,7 @@ lvim.plugins = {
   { "smithbm2316/centerpad.nvim", module = "centerpad" },
   {
     "nvim-neotest/neotest",
-    module = "neotest",
+    -- module = "neotest",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
