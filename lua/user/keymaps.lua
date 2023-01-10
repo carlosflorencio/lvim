@@ -16,6 +16,7 @@ lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
 vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
 
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
+lvim.keys.visual_mode["y"] = "y`]" -- prevent going up when yanking
 
 -- yanky ring
 vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")

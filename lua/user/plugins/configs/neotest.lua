@@ -45,8 +45,8 @@ vim.api.nvim_create_autocmd("BufWritePost", {
       neotest.run.run(path)
     end)
 
-    vim.notify("Running Tests", "info", {
-      timeout = 1000
-    })
+    -- vim.notify("Running Tests", "info", {
+    --   timeout = 1000
+    -- })
   end
 })

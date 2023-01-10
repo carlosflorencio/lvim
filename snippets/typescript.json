@@ -1,7 +1,7 @@
 {
   "DocBlock": {
     "prefix": "/**",
-    "body": ["/**\n* $1\n*/", "$0"],
+    "body": ["/**\n* $1\n*/"],
     "description": "DocBlock comment"
   },
   "Log to the console": {

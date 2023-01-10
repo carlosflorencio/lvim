@@ -2,7 +2,7 @@ lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
   { "Yazeed1s/oh-lucy.nvim" }, -- theme
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
-  { "szw/vim-maximizer" }, -- toggle maximise split
+  { "szw/vim-maximizer", cmd = { "MaximizerToggle" } }, -- toggle maximise split
   { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
   { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
   { "ethanholz/nvim-lastplace",
@@ -10,15 +10,25 @@ lvim.plugins = {
       require("nvim-lastplace").setup()
     end
   },
-  { "PatschD/zippy.nvim", event = "BufRead" }, -- log variables under cursor
+  { "PatschD/zippy.nvim", module = "zippy" }, -- log variables under cursor
   { "stevearc/dressing.nvim" }, -- improve vim ui's
   { "nvim-telescope/telescope-dap.nvim" },
   { "benfowler/telescope-luasnip.nvim" },
-  { "metakirby5/codi.vim" }, -- scratch files
-  { 'michaelb/sniprun', run = 'bash ./install.sh' }, -- inline run code
+  {
+    -- scratch files
+    "metakirby5/codi.vim",
+    cmd = { "Codi", "CodiNew", "CodiSelect", "CodiExpand" }
+  },
+  {
+    -- inline run code
+    'michaelb/sniprun',
+    cmd = { "SnipRun" },
+    run = 'bash ./install.sh',
+  },
   { "wakatime/vim-wakatime" },
   {
     "asiryk/auto-hlsearch.nvim",
+    event = "BufRead",
     config = function()
       require("auto-hlsearch").setup()
     end
@@ -33,6 +43,7 @@ lvim.plugins = {
   {
     -- auto close tags <div| => <div></div>
     "windwp/nvim-ts-autotag",
+    event = "BufRead",
     config = function()
       require("nvim-ts-autotag").setup()
     end,
@@ -47,13 +58,14 @@ lvim.plugins = {
   {
     -- powerfull search & replace
     "windwp/nvim-spectre",
-    event = "BufRead",
+    module = "spectre",
     config = function()
       require("spectre").setup()
     end,
   },
   {
     "simrat39/symbols-outline.nvim",
+    cmd = { "SymbolsOutline" },
     config = function()
       require('symbols-outline').setup()
     end
@@ -64,6 +76,7 @@ lvim.plugins = {
   },
   {
     "dnlhc/glance.nvim",
+    cmd = { "Glance" },
     config = function()
       require("glance").setup()
     end
@@ -104,6 +117,7 @@ lvim.plugins = {
   },
   {
     "pwntester/octo.nvim",
+    cmd = { "Octo" },
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
@@ -129,7 +143,7 @@ lvim.plugins = {
   --   end
   -- },
   {
-    -- require("notify")("My super important message")
+    -- require("notify")("My super important message"), overrides vim.notify
     "rcarriga/nvim-notify",
     config = function()
       require("user.plugins.configs.notify")
@@ -148,8 +162,9 @@ lvim.plugins = {
     end
   },
   {
-    -- rename react hooks args
+    -- rename react hooks args :RenameState
     "olrtg/nvim-rename-state",
+    cmd = { "RenameState" },
     ft = {
       "typescriptreact",
       "javascriptreact",
@@ -175,10 +190,11 @@ lvim.plugins = {
       require("user.plugins.configs.boole")
     end
   },
-  { "elihunter173/dirbuf.nvim" }, -- edit fs as a buffer
-  { "smithbm2316/centerpad.nvim", event = "BufRead" },
+  { "elihunter173/dirbuf.nvim", cmd = { "Dirbuf" } }, -- edit fs as a buffer
+  { "smithbm2316/centerpad.nvim", module = "centerpad" },
   {
     "nvim-neotest/neotest",
+    module = "neotest",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -224,6 +240,7 @@ lvim.plugins = {
     end
   },
   { "karb94/neoscroll.nvim",
+    event = "BufRead",
     config = function()
       require("neoscroll").setup({
         mappings = { '<C-u>', '<C-d>' },
@@ -232,11 +249,12 @@ lvim.plugins = {
   },
   {
     "sindrets/diffview.nvim",
-    event = "BufRead",
+    cmd = { "DiffviewOpen" }
   },
   {
     -- split join code
     'Wansmer/treesj',
+    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     requires = { 'nvim-treesitter' },
     config = function()
       require('treesj').setup({
@@ -251,16 +269,19 @@ lvim.plugins = {
       require("user.plugins.configs.yanky")
     end
   },
-  { "ThePrimeagen/harpoon",
+  {
+    "ThePrimeagen/harpoon",
     requires = {
       "nvim-telescope/telescope.nvim"
     },
+    module = "harpoon",
     config = function()
       require("telescope").load_extension "harpoon"
     end
   },
   {
     "simrat39/inlay-hints.nvim",
+    module = "inlay-hints",
     config = function()
       require("user.plugins.configs.inlay-hints")
     end
@@ -268,7 +289,6 @@ lvim.plugins = {
   {
     -- improved autocomplete on functions
     "ray-x/lsp_signature.nvim",
-    -- event = "BufRead",
     config = function()
       require("user.plugins.configs.lsp_signature")
     end,

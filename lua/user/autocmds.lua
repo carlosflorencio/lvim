@@ -10,10 +10,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     local validFileTypes = {
       rust = true,
-      typescript = true,
-      typescriptreact = true,
-      javascript = true,
-      javascriptreact = true,
+      -- typescript = true,
+      -- typescriptreact = true,
+      -- javascript = true,
+      -- javascriptreact = true,
       -- lua = true,
     }
 
