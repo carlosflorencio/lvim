@@ -2,5 +2,6 @@
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
   { name = "prettierd" },
-  { name = "eslint" }
+  { name = "fish_indent" },
+  -- { name = "eslintd" }
 })

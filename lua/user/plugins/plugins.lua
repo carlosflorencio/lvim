@@ -43,7 +43,7 @@ lvim.plugins = {
   {
     -- auto close tags <div| => <div></div>
     "windwp/nvim-ts-autotag",
-    event = "BufRead",
+    -- event = "BufRead",
     config = function()
       require("nvim-ts-autotag").setup()
     end,
@@ -194,7 +194,7 @@ lvim.plugins = {
   { "smithbm2316/centerpad.nvim", module = "centerpad" },
   {
     "nvim-neotest/neotest",
-    -- module = "neotest",
+    module = "neotest",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -205,16 +205,16 @@ lvim.plugins = {
       require("user.plugins.configs.neotest")
     end
   },
-  -- {
-  --   -- center buffer
-  --   "shortcuts/no-neck-pain.nvim",
-  --   tag = "*",
-  --   config = function()
-  --     require("no-neck-pain").setup({
-  --       toggleMapping = false
-  --     })
-  --   end
-  -- },
+  {
+    -- center buffer
+    "shortcuts/no-neck-pain.nvim",
+    tag = "*",
+    config = function()
+      require("no-neck-pain").setup({
+        toggleMapping = false
+      })
+    end
+  },
 
   {
     -- insert mode navigation on tab

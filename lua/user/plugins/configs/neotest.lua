@@ -17,7 +17,6 @@ neotest.setup({
       -- jestConfigFile = "jest.config.ts",
       -- env = { CI = false },
       cwd = function(path)
-        vim.notify("here cwd neotest")
         local root = neotestLib.files.match_root_pattern("package.json")(path)
 
         -- vim.notify("found root " .. root)

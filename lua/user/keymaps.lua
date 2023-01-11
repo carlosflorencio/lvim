@@ -1,12 +1,12 @@
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
--- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
+-- lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
 -- use c-e & c-y for scrolling
 lvim.keys.normal_mode["zj"] = "o<ESC>k"
 lvim.keys.normal_mode["zk"] = "O<ESC>j"
-lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
 lvim.keys.normal_mode["<C-c>"] = ":BufferKill<CR>" -- close buffer
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
@@ -27,8 +27,8 @@ vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 
 -- jumps
-lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_next
-lvim.keys.normal_mode["]e"] = vim.diagnostic.goto_prev
+lvim.keys.normal_mode["]e"] = vim.diagnostic.goto_next
+lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_prev
 lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
 
@@ -112,14 +112,14 @@ lvim.builtin.which_key.mappings["c"] = {
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "Toggle/Diagnostics",
-  t = {
-    "<cmd>NvimTreeToggle<cr><cmd>lua require'centerpad'.toggle{ leftpad = 40, rightpad = 40 }<cr>",
-    "Center Buffer",
-  },
   -- t = {
-  --   "<cmd>NoNeckPain<cr>",
+  --   "<cmd>NvimTreeToggle<cr><cmd>lua require'centerpad'.toggle{ leftpad = 40, rightpad = 40 }<cr>",
   --   "Center Buffer",
   -- },
+  t = {
+    "<cmd>NoNeckPain<cr>",
+    "Center Buffer",
+  },
   g = { "<cmd>TroubleToggle<cr>", "trouble" },
   w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
   d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
