@@ -4,6 +4,11 @@ lvim.builtin.dap.on_config_done = function(dap)
     command = vim.fn.stdpath "data" .. "/mason/bin/node-debug2-adapter",
   }
 
+  dap.adapters["pwa-node"] = {
+    type = "executable",
+    command = vim.fn.stdpath "data" .. "/mason/bin/js-debug-adapter",
+  }
+
 
   dap.configurations.typescript = {
     {

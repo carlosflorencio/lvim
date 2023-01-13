@@ -50,7 +50,8 @@ lvim.keys.insert_mode["<c-p>"] = "<ESC>p" -- paste in insert mode
 
 lvim.builtin.which_key.mappings["h"] = {
   name = "misc",
-  s = { "<cmd>TSJToggle<cr>", "Toggle split node under cursor" }
+  a = { '<cmd>lua require("ts-node-action").node_action()<cr>', "Toggle node action under cursor" },
+  s = { '<cmd>TSJToggle<cr>', "Toggle node split" }
 }
 
 lvim.builtin.which_key.mappings["q"] = { "<cmd>qa<cr>", "Quit All" }
@@ -144,6 +145,9 @@ lvim.builtin.which_key.mappings["o"] = {
   name = "Organize",
   i = { "<cmd>TypescriptOrganizeImports<cr>", "TS Organize Imports" },
   a = { "<cmd>TypescriptAddMissingImports<cr>", "TS Add missing Imports" },
+  p = { "<cmd>Octo pr list<cr>", "Octo PR list" },
+  r = { "<cmd>Octo review resume<cr>", "Octo Review Resume" },
+  R = { "<cmd>Octo review start<cr>", "Octo Review Start" },
 }
 
 lvim.builtin.which_key.mappings["r"] = {
@@ -168,13 +172,15 @@ lvim.builtin.which_key.on_config_done = function(wk)
     t = {
       name = "Test",
       u = { '<cmd>lua require("neotest").run.run()<CR>', "Run nearest test under cursor" },
-      t = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', "Test file" }
+      t = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', "Test file" },
+      o = { '<cmd>lua require("neotest").output.open({ enter = true })<cr>', "Test Output Dialog" }
     },
     d = {
       name = "Debug",
       u = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', "Debug nearest test under cursor" },
-      d = { '<cmd>lua require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"})<cr>', "Debug File" }
-    }
+      d = { '<cmd>lua require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"})<cr>', "Debug File" },
+    },
+    b = { "<cmd> lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" }
   }, {
     mode = "n", -- NORMAL mode
     prefix = ",",

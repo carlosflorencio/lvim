@@ -56,7 +56,7 @@ lvim.plugins = {
     end
   },
   {
-    -- powerfull search & replace
+    -- powerful search & replace
     "windwp/nvim-spectre",
     module = "spectre",
     config = function()
@@ -82,7 +82,7 @@ lvim.plugins = {
     end
   },
   {
-    -- surround with selection hightlight
+    -- surround with selection highlight
     "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup()
@@ -116,7 +116,9 @@ lvim.plugins = {
     end
   },
   {
-    "pwntester/octo.nvim",
+    -- "pwntester/octo.nvim",
+    "NWVi/octo.nvim", -- todo: use original when local fs is merged
+    branch = "config-review-use-local-fs",
     cmd = { "Octo" },
     requires = {
       'nvim-lua/plenary.nvim',
@@ -124,7 +126,9 @@ lvim.plugins = {
       'kyazdani42/nvim-web-devicons',
     },
     config = function()
-      require("octo").setup()
+      require("octo").setup({
+        use_local_fs = true -- use local files on right side of reviews, enables LSP
+      })
     end,
   },
   -- {
@@ -252,7 +256,7 @@ lvim.plugins = {
     cmd = { "DiffviewOpen" }
   },
   {
-    -- split join code
+    -- split/join code
     'Wansmer/treesj',
     cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     requires = { 'nvim-treesitter' },
@@ -261,6 +265,15 @@ lvim.plugins = {
         use_default_keymaps = false,
       })
     end,
+  },
+  {
+    -- split code, toggle variables, etc
+    'ckolkey/ts-node-action',
+    module = "ts-node-action",
+    requires = { 'nvim-treesitter' },
+    config = function() -- Optional
+      require("user.plugins.configs.ts-node-action")
+    end
   },
   {
     -- yank ring
