@@ -131,6 +131,14 @@ lvim.plugins = {
       })
     end,
   },
+  {
+    "rest-nvim/rest.nvim",
+    ft = { "http" },
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("user.plugins.configs.rest")
+    end
+  },
   -- {
   --   "folke/zen-mode.nvim",
   --   config = function()
@@ -212,10 +220,17 @@ lvim.plugins = {
   {
     -- center buffer
     "shortcuts/no-neck-pain.nvim",
-    tag = "*",
+    -- tag = "*",
     config = function()
       require("no-neck-pain").setup({
-        toggleMapping = false
+        toggleMapping = false,
+        width = 120,
+        integrations = {
+          NvimTree = {
+            -- Paired with the `close` parameter, when `false` we don't re-open the side tree.
+            reopen = false,
+          },
+        },
       })
     end
   },
