@@ -10,7 +10,8 @@ lvim.lsp.installer.setup.ensure_installed = {
   "marksman", -- markdown
   "taplo", -- toml
   "quick_lint_js",
-  "vimls"
+  "vimls",
+  "emmet_ls"
 }
 
 require("user.lsp.null-ls.formatters")
@@ -33,3 +34,4 @@ require("lvim.lsp.manager").setup("marksman")
 require("lvim.lsp.manager").setup("taplo")
 require("lvim.lsp.manager").setup("quick_lint_js")
 require("lvim.lsp.manager").setup("eslint")
+require("lvim.lsp.manager").setup("emmet_ls")
