@@ -1,6 +1,7 @@
 lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
   { "Yazeed1s/oh-lucy.nvim" }, -- theme
+  { "catppuccin/nvim", as = "catppuccin" }, -- theme
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" } }, -- toggle maximise split
   { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
@@ -13,6 +14,28 @@ lvim.plugins = {
   { "PatschD/zippy.nvim", module = "zippy" }, -- log variables under cursor
   { "stevearc/dressing.nvim" }, -- improve vim ui's
   { "nvim-telescope/telescope-dap.nvim" },
+  {
+    "danielfalk/smart-open.nvim",
+    requires = { "kkharji/sqlite.lua" }
+  },
+  {
+    -- past images from clipboard into md files :PasteImage
+    "ekickx/clipboard-image.nvim",
+    ft = { "markdown" },
+    config = function()
+      require("user.plugins.configs.clipboard-image")
+    end
+  },
+  {
+    -- Image asci previewer
+    'samodostal/image.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('image').setup()
+    end
+  },
   { "benfowler/telescope-luasnip.nvim" },
   {
     -- scratch files

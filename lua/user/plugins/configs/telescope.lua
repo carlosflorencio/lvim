@@ -28,8 +28,14 @@ lvim.builtin.telescope.pickers.live_grep = {
   previewer = nil -- show previewer
 }
 
+-- lvim.builtin.telescope.extensions.smart_open = {
+--   disable_devicons = true,
+--   show_scores = true
+-- }
+
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "dap")
   pcall(telescope.load_extension, "notify")
   pcall(telescope.load_extension, "luasnip")
+  pcall(telescope.load_extension, "smart_open")
 end
