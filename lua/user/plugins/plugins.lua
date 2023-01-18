@@ -15,6 +15,7 @@ lvim.plugins = {
   { "stevearc/dressing.nvim" }, -- improve vim ui's
   { "nvim-telescope/telescope-dap.nvim" },
   {
+    -- smart telescope file searcher
     "danielfalk/smart-open.nvim",
     requires = { "kkharji/sqlite.lua" }
   },
@@ -34,6 +35,21 @@ lvim.plugins = {
     },
     config = function()
       require('image').setup()
+    end
+  },
+  {
+    -- session management
+    "gennaro-tedesco/nvim-possession",
+    branch = "post_hooks", -- TODO: change back to main after merging
+    requires = {
+      "ibhagwan/fzf-lua",
+    },
+    config = function()
+      require("nvim-possession").setup({
+        post_hook = function()
+          require('nvim-tree').toggle(false, true)
+        end
+      })
     end
   },
   { "benfowler/telescope-luasnip.nvim" },
@@ -240,23 +256,23 @@ lvim.plugins = {
       require("user.plugins.configs.neotest")
     end
   },
-  {
-    -- center buffer
-    "shortcuts/no-neck-pain.nvim",
-    -- tag = "*",
-    config = function()
-      require("no-neck-pain").setup({
-        toggleMapping = false,
-        width = 120,
-        integrations = {
-          NvimTree = {
-            -- Paired with the `close` parameter, when `false` we don't re-open the side tree.
-            reopen = false,
-          },
-        },
-      })
-    end
-  },
+  -- {
+  --   -- center buffer
+  --   "shortcuts/no-neck-pain.nvim",
+  --   -- tag = "*",
+  --   config = function()
+  --     require("no-neck-pain").setup({
+  --       toggleMapping = false,
+  --       width = 120,
+  --       integrations = {
+  --         NvimTree = {
+  --           -- Paired with the `close` parameter, when `false` we don't re-open the side tree.
+  --           reopen = false,
+  --         },
+  --       },
+  --     })
+  --   end
+  -- },
 
   {
     -- insert mode navigation on tab
@@ -344,14 +360,14 @@ lvim.plugins = {
       require("user.plugins.configs.lsp_signature")
     end,
   },
-  {
-    -- needs to be the last one, otherwise PackerSync fails on the first setup install
-    "ahmedkhalf/lsp-rooter.nvim",
-    event = "BufRead",
-    config = function()
-      require("lsp-rooter").setup()
-    end,
-  },
+  -- {
+  --   -- needs to be the last one, otherwise PackerSync fails on the first setup install
+  --   "ahmedkhalf/lsp-rooter.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("lsp-rooter").setup()
+  --   end,
+  -- },
 }
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile

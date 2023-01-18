@@ -73,10 +73,11 @@ lvim.builtin.which_key.mappings["f"] = {
   m = { require("lvim.lsp.utils").format, "Format" },
   r = { "<cmd>Telescope oldfiles initial_mode=normal only_cwd=true<cr>", "Open Recent Files" },
   R = { "<cmd>Telescope registers initial_mode=normal<cr>", "Registers" },
-  w = { "<cmd>Telescope live_grep<cr>", "Text" },
+  w = { "<cmd>Telescope live_grep<cr>", "Grep Text" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
   s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+  p = { "<cmd>Telescope projects<cr>", "Projects" },
   S = { "<cmd>Telescope luasnip theme=dropdown<cr>", "Snippets" },
   t = {
     "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
@@ -91,6 +92,9 @@ lvim.builtin.which_key.mappings["s"] = {
   h    = { "<cmd>split<cr>", "Split Horizontally" },
   m    = { "<cmd>MaximizerToggle<CR>", "Toggle Maximize" },
   c    = { "<cmd>close<CR>", "Close split" },
+  l    = { '<cmd>lua require("nvim-possession").list()<cr>', "Session List (<c-x> to delete)" },
+  n    = { '<cmd>lua require("nvim-possession").new()<cr>', "Session New" },
+  u    = { '<cmd>lua require("nvim-possession").update()<cr>', "Session Update" },
 }
 
 lvim.builtin.which_key.mappings["m"] = {
