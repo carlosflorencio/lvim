@@ -51,7 +51,8 @@ lvim.keys.insert_mode["<c-p>"] = "<ESC>p" -- paste in insert mode
 lvim.builtin.which_key.mappings["h"] = {
   name = "misc",
   a = { '<cmd>lua require("ts-node-action").node_action()<cr>', "Toggle node action under cursor" },
-  s = { '<cmd>TSJToggle<cr>', "Toggle node split" }
+  s = { '<cmd>TSJToggle<cr>', "Toggle node split" },
+  c = { '<cmd>lua require("neogen").generate()<cr>', "Generate Comment Annotation" }
 }
 
 lvim.builtin.which_key.mappings["q"] = { "<cmd>qa<cr>", "Quit All" }

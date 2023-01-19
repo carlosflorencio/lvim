@@ -1,6 +1,11 @@
 lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
   { "Yazeed1s/oh-lucy.nvim" }, -- theme
+  {
+    -- theme
+    'uloco/bluloco.nvim',
+    requires = { 'rktjmp/lush.nvim' }
+  },
   { "catppuccin/nvim", as = "catppuccin" }, -- theme
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
   { "szw/vim-maximizer", cmd = { "MaximizerToggle" } }, -- toggle maximise split
@@ -9,6 +14,12 @@ lvim.plugins = {
   { "ethanholz/nvim-lastplace",
     config = function()
       require("nvim-lastplace").setup()
+    end
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require("scrollbar").setup()
     end
   },
   { "PatschD/zippy.nvim", module = "zippy" }, -- log variables under cursor
@@ -40,16 +51,11 @@ lvim.plugins = {
   {
     -- session management
     "gennaro-tedesco/nvim-possession",
-    branch = "post_hooks", -- TODO: change back to main after merging
     requires = {
       "ibhagwan/fzf-lua",
     },
     config = function()
-      require("nvim-possession").setup({
-        post_hook = function()
-          require('nvim-tree').toggle(false, true)
-        end
-      })
+      require("user.plugins.configs.possession")
     end
   },
   { "benfowler/telescope-luasnip.nvim" },
@@ -57,6 +63,14 @@ lvim.plugins = {
     -- scratch files
     "metakirby5/codi.vim",
     cmd = { "Codi", "CodiNew", "CodiSelect", "CodiExpand" }
+  },
+  {
+    -- generate docblocks
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup({ snippet_engine = "luasnip" })
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
   },
   {
     -- inline run code
