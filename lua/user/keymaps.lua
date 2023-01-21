@@ -133,6 +133,7 @@ lvim.builtin.which_key.mappings["t"] = {
   q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
   l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+  n = { "<cmd>tabnew<cr>", "New Tab" },
 }
 
 lvim.builtin.which_key.mappings["d"] = {
@@ -177,14 +178,31 @@ lvim.builtin.which_key.on_config_done = function(wk)
     name = "Test / Debug",
     t = {
       name = "Test",
-      u = { '<cmd>lua require("neotest").run.run()<CR>', "Run nearest test under cursor" },
-      t = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', "Test file" },
+      u = { function()
+        require("user.cmds").buildProjectBefore(function()
+          require("neotest").run.run()
+        end)
+      end, "Run nearest test under cursor" },
+      t = { function()
+        require("user.cmds").buildProjectBefore(function()
+          require("neotest").run.run(vim.fn.expand("%"))
+        end)
+      end, "Test file" },
       o = { '<cmd>lua require("neotest").output.open({ enter = true })<cr>', "Test Output Dialog" }
     },
     d = {
       name = "Debug",
-      u = { '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', "Debug nearest test under cursor" },
-      d = { '<cmd>lua require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"})<cr>', "Debug File" },
+      u = { function()
+        require("user.cmds").buildProjectBefore(function()
+          require("neotest").run.run({ strategy = "dap" })
+        end)
+      end, "Debug nearest test under cursor" },
+      d = { function()
+
+        require("user.cmds").buildProjectBefore(function()
+          require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
+        end)
+      end, "Debug File" },
     },
     b = { "<cmd> lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" }
   }, {

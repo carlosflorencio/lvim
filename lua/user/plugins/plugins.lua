@@ -285,6 +285,22 @@ lvim.plugins = {
       require("user.plugins.configs.neotest")
     end
   },
+  {
+    -- dap adapter for the newer vscode-js debugger
+    "mxsdev/nvim-dap-vscode-js",
+    requires = { "mfussenegger/nvim-dap" },
+    config = function()
+      require("user.plugins.configs.dap-vscode-js")
+    end
+  },
+  {
+    -- vscode debug adapter install
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npm run compile",
+    -- https://github.com/mxsdev/nvim-dap-vscode-js/issues/23
+    tag = 'v1.74.1'
+  },
   -- {
   --   -- center buffer
   --   "shortcuts/no-neck-pain.nvim",
