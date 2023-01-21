@@ -8,12 +8,22 @@ lvim.plugins = {
   },
   { "catppuccin/nvim", as = "catppuccin" }, -- theme
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
-  { "szw/vim-maximizer", cmd = { "MaximizerToggle" } }, -- toggle maximise split
   { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
   { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
   { "ethanholz/nvim-lastplace",
     config = function()
       require("nvim-lastplace").setup()
+    end
+  },
+  {
+    -- expand windows
+    "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+      -- "anuvyklack/animation.nvim"
+    },
+    config = function()
+      require("user.plugins.configs.windows")
     end
   },
   {
