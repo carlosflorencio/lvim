@@ -18,3 +18,9 @@ vim.opt.cursorline     = true
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
 
 vim.opt.cmdheight = 0 -- hide command line unless needed
+
+-- folds ufo
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true

@@ -273,6 +273,14 @@ lvim.plugins = {
   { "elihunter173/dirbuf.nvim", cmd = { "Dirbuf" } }, -- edit fs as a buffer
   { "smithbm2316/centerpad.nvim", module = "centerpad" },
   {
+    -- folds
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = function()
+      require("user.plugins.configs.ufo")
+    end
+  },
+  {
     "nvim-neotest/neotest",
     module = "neotest",
     requires = {
