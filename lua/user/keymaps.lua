@@ -131,6 +131,7 @@ lvim.builtin.which_key.mappings["c"] = {
       "Close all buffers but the current one",
     }
   },
+  w = { "<cmd>q<cr>", "Close Window" }
 }
 
 lvim.builtin.which_key.mappings["t"] = {
