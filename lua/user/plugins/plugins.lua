@@ -132,13 +132,6 @@ lvim.plugins = {
     end,
   },
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = { "SymbolsOutline" },
-    config = function()
-      require('symbols-outline').setup()
-    end
-  },
-  {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
@@ -292,6 +285,38 @@ lvim.plugins = {
     config = function()
       require("user.plugins.configs.neotest")
     end
+  },
+  {
+    "jackMort/ChatGPT.nvim",
+    -- cmd = { "ChatGPT", "ChatGPTActAs" },
+    -- module = "chatgpt",
+    config = function()
+      require("chatgpt").setup({})
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
+  {
+    -- lsp symbols table
+    'stevearc/aerial.nvim',
+    cmd = { "AerialToggle" },
+    config = function()
+      require("user.plugins.configs.aerial")
+    end
+  },
+  {
+    -- better looking lsp virtual text
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  },
+  {
+    -- statuslune lsp progress
+    "arkav/lualine-lsp-progress"
   },
   {
     -- dap adapter for the newer vscode-js debugger

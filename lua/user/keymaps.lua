@@ -100,7 +100,7 @@ lvim.builtin.which_key.mappings["f"] = {
 
 lvim.builtin.which_key.mappings["s"] = {
   name = "Splits",
-  t    = { "<cmd>SymbolsOutline<CR>", "Toggle SymbolsOutline" },
+  t    = { "<cmd>AerialToggle!<CR>", "Toggle AerialToggle Symbols" },
   v    = { "<cmd>vsplit<cr>", "Split Vertically" },
   h    = { "<cmd>split<cr>", "Split Horizontally" },
   m    = { "<cmd>WindowsMaximize<CR>", "Toggle Maximize" },

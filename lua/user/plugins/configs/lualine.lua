@@ -86,4 +86,5 @@ lvim.builtin.lualine.sections.lualine_c = {
       hint = "#88C0D0",
     },
   },
+  "lsp_progress"
 }

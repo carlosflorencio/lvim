@@ -56,7 +56,7 @@ lvim.builtin.treesitter.textobjects = {
   select = {
     enable = true,
     -- Automatically jump forward to textobj, similar to targets.vim
-    lookahead = true,
+    lookahead = false,
 
     keymaps = {
       ["af"] = "@function.outer",
@@ -65,7 +65,10 @@ lvim.builtin.treesitter.textobjects = {
       ["ac"] = "@conditional.outer",
       ["ic"] = "@conditional.inner",
 
+      -- ["aa"] = "@parameter.outer",
+      -- ["ia"] = "@parameter.inner",
+
     },
-    include_surrounding_whitespace = true,
+    include_surrounding_whitespace = false,
   },
 }
