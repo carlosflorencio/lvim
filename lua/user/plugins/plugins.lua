@@ -16,6 +16,19 @@ lvim.plugins = {
     end
   },
   {
+    -- bettter quickfix with preview
+    'kevinhwang91/nvim-bqf',
+    ft = 'qf',
+  },
+  {
+    -- package.json update actions
+    "vuki656/package-info.nvim",
+    requires = "MunifTanjim/nui.nvim",
+    config = function()
+      require('package-info').setup()
+    end
+  },
+  {
     -- expand windows
     "anuvyklack/windows.nvim",
     requires = {
@@ -39,6 +52,12 @@ lvim.plugins = {
     -- smart telescope file searcher
     "danielfalk/smart-open.nvim",
     requires = { "kkharji/sqlite.lua" }
+  },
+  {
+    -- regex explainer, gR (:TSInstall regex)
+    'bennypowers/nvim-regexplainer',
+    config = function() require 'regexplainer'.setup() end,
+    requires = { 'nvim-treesitter/nvim-treesitter', 'MunifTanjim/nui.nvim' }
   },
   {
     -- past images from clipboard into md files :PasteImage
@@ -307,13 +326,13 @@ lvim.plugins = {
       require("user.plugins.configs.aerial")
     end
   },
-  {
-    -- better looking lsp virtual text
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  },
+  -- {
+  --   -- better looking lsp virtual text
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   config = function()
+  --     require("lsp_lines").setup()
+  --   end,
+  -- },
   {
     -- statuslune lsp progress
     "arkav/lualine-lsp-progress"
@@ -413,6 +432,13 @@ lvim.plugins = {
     config = function()
       require("user.plugins.configs.yanky")
     end
+  },
+  {
+    -- telescope undo
+    "debugloop/telescope-undo.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim"
+    },
   },
   {
     "ThePrimeagen/harpoon",

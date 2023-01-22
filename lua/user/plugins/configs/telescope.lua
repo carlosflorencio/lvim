@@ -38,4 +38,5 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "notify")
   pcall(telescope.load_extension, "luasnip")
   pcall(telescope.load_extension, "smart_open")
+  pcall(telescope.load_extension, "undo")
 end

@@ -74,9 +74,10 @@ function diagnostics_message:update_status(is_focused)
 end
 
 local components = require("lvim.core.lualine.components")
+local package_info = require("package-info") -- package.json
 
 lvim.builtin.lualine.sections.lualine_c = {
-  components.filename,
+  -- components.filename,
   {
     diagnostics_message,
     colors = {
@@ -86,5 +87,6 @@ lvim.builtin.lualine.sections.lualine_c = {
       hint = "#88C0D0",
     },
   },
-  "lsp_progress"
+  "lsp_progress",
+  package_info.get_status
 }

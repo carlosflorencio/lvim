@@ -24,5 +24,4 @@ Always a work in progress.
   - Remove neovim included parsers from the filesystem (rename folder)
     - `/opt/homebrew/Cellar/neovim/0.8.2/share/nvim/runtime/queries`
 - Update LunarVim core plugins:
-  - https://github.com/LunarVim/LunarVim/issues/3680#issuecomment-1374025577
-  - `:PackerSnapshot default`
+  - Update plugin commit hash at `~/.local/share/lunarvim/lvim/snapshots`

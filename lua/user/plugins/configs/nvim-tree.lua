@@ -5,6 +5,7 @@ lvim.builtin.nvimtree.setup.view.adaptive_size = true
 lvim.builtin.nvimtree.setup.renderer.highlight_opened_files = "all"
 lvim.builtin.nvimtree.setup.git.ignore = true
 lvim.builtin.nvimtree.setup.git.show_on_dirs = false
+lvim.builtin.nvimtree.setup.renderer.symlink_destination = false
 
 -- lvim.builtin.nvimtree.setup.hijack_directories = {
 --   enable = false,

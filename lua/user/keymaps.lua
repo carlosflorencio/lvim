@@ -18,6 +18,9 @@ vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
 lvim.keys.visual_mode["y"] = "y`]" -- prevent going up when yanking
 
+-- Regex explainer hide
+vim.keymap.set('n', '<esc>', '<cmd>RegexplainerHide<cr>')
+
 -- yanky ring
 vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
 vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
@@ -92,6 +95,7 @@ lvim.builtin.which_key.mappings["f"] = {
   s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
   p = { "<cmd>Telescope projects<cr>", "Projects" },
   S = { "<cmd>Telescope luasnip theme=dropdown<cr>", "Snippets" },
+  u = { "<cmd>Telescope undo<cr>", "Undo list" },
   t = {
     "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
     "Colorscheme with Preview",
@@ -178,6 +182,8 @@ lvim.builtin.which_key.mappings["r"] = {
 lvim.builtin.which_key.mappings["l"]["R"] = { "<cmd>RenameState<cr>", "Rename React Hooks args" }
 
 lvim.builtin.which_key.mappings["p"]["p"] = { "<cmd>Glow<cr>", "Preview" }
+lvim.builtin.which_key.mappings["p"]["v"] = { "<cmd>lua require('package-info').change_version()<cr>",
+  "Package.json Change Version Dep" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<cr>", "Floating file explorer Lir" }
 lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
 lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers previewer=false ignore_current_buffer=true sort_mru=true<cr>",
