@@ -17,6 +17,7 @@ lvim.plugins = {
   },
   {
     -- bettter quickfix with preview
+    -- <c-b>, <c-f> to scroll the preview window
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
   },
@@ -42,7 +43,7 @@ lvim.plugins = {
   {
     "petertriho/nvim-scrollbar",
     config = function()
-      require("scrollbar").setup()
+      require("user.plugins.configs.scrollbar")
     end
   },
   { "PatschD/zippy.nvim", module = "zippy" }, -- log variables under cursor
@@ -77,14 +78,20 @@ lvim.plugins = {
       require('image').setup()
     end
   },
+  -- {
+  --   -- session management
+  --   "gennaro-tedesco/nvim-possession",
+  --   requires = {
+  --     "ibhagwan/fzf-lua",
+  --   },
+  --   config = function()
+  --     require("user.plugins.configs.possession")
+  --   end
+  -- },
   {
-    -- session management
-    "gennaro-tedesco/nvim-possession",
-    requires = {
-      "ibhagwan/fzf-lua",
-    },
+    'rmagatti/auto-session',
     config = function()
-      require("user.plugins.configs.possession")
+      require("user.plugins.configs.auto-session")
     end
   },
   {
@@ -291,6 +298,13 @@ lvim.plugins = {
     config = function()
       require("user.plugins.configs.ufo")
     end
+  },
+  {
+    -- % match ifs, etc
+    "andymass/vim-matchup",
+    setup = function()
+      require("user.plugins.configs.matchup")
+    end,
   },
   {
     "nvim-neotest/neotest",

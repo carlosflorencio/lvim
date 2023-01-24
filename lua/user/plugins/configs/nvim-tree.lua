@@ -1,7 +1,11 @@
 lvim.builtin.nvimtree.setup.ignore_ft_on_setup = {}
 lvim.builtin.nvimtree.setup.ignore_buffer_on_setup = true
 lvim.builtin.nvimtree.setup.open_on_setup_file = true
-lvim.builtin.nvimtree.setup.view.adaptive_size = true
+-- lvim.builtin.nvimtree.setup.view.adaptive_size = true
+lvim.builtin.nvimtree.setup.view.width = {
+  min = 30,
+  max = 40
+}
 lvim.builtin.nvimtree.setup.renderer.highlight_opened_files = "all"
 lvim.builtin.nvimtree.setup.git.ignore = true
 lvim.builtin.nvimtree.setup.git.show_on_dirs = false

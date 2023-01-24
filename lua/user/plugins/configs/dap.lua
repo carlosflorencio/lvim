@@ -1,5 +1,5 @@
 lvim.builtin.dap.on_config_done = function(dap)
-  for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
+  for _, language in ipairs({ "javascript", "javascriptreact" }) do
     dap.configurations[language] = {
       {
         type = "pwa-node",
@@ -25,6 +25,35 @@ lvim.builtin.dap.on_config_done = function(dap)
       }
     }
   end
+
+  for _, language in ipairs({ "typescript", "typescriptreact" }) do
+    dap.configurations[language] = {
+      {
+        type = "pwa-node",
+        request = "launch",
+        name = "Launch file Typescript",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
+        runtimeExecutable = "ts-node"
+      },
+      {
+        type = "pwa-node",
+        request = "launch",
+        name = "Debug Jest Tests",
+        -- trace = true, -- include debugger info
+        runtimeExecutable = "node",
+        runtimeArgs = {
+          "./node_modules/jest/bin/jest.js",
+          "--runInBand",
+        },
+        rootPath = "${workspaceFolder}",
+        cwd = "${workspaceFolder}",
+        console = "integratedTerminal",
+        internalConsoleOptions = "neverOpen",
+      }
+    }
+  end
+
 
   -- auto close dap ui
   dap.listeners.before.event_terminated["dapui_config"] = function()

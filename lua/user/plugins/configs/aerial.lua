@@ -6,16 +6,4 @@ require('aerial').setup({
     vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
   end,
 
-  filter_kind = {
-    "Class",
-    "Constructor",
-    "Enum",
-    "Function",
-    "Interface",
-    "Module",
-    "Method",
-    "Struct",
-    "Property",
-    "Field"
-  },
 })

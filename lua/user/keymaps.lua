@@ -11,6 +11,7 @@ lvim.keys.normal_mode["<C-c>"] = ":BufferKill<CR>" -- close buffer
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
+-- lvim.keys.normal_mode["/"] = ":silent! /"
 
 -- Search and replace word under cursor using <F2>
 vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
@@ -171,6 +172,7 @@ lvim.builtin.which_key.mappings["o"] = {
   a = { "<cmd>TypescriptAddMissingImports<cr>", "TS Add missing Imports" },
   p = { "<cmd>Octo pr list<cr>", "Octo PR list" },
   r = { "<cmd>Octo review resume<cr>", "Octo Review Resume" },
+  s = { "<cmd>Octo review submit<cr>", "Octo Review Submit" },
   R = { "<cmd>Octo review start<cr>", "Octo Review Start" },
 }
 
@@ -207,23 +209,30 @@ lvim.builtin.which_key.on_config_done = function(wk)
           require("neotest").run.run(vim.fn.expand("%"))
         end)
       end, "Test file" },
-      o = { '<cmd>lua require("neotest").output.open({ enter = true })<cr>', "Test Output Dialog" }
-    },
-    d = {
-      name = "Debug",
-      u = { function()
+      d = { function()
         require("user.cmds").buildProjectBefore(function()
           require("neotest").run.run({ strategy = "dap" })
         end)
       end, "Debug nearest test under cursor" },
-      d = { function()
-
+      o = { '<cmd>lua require("neotest").output.open({ enter = true })<cr>', "Test Output Dialog" }
+    },
+    d = {
+      name = "Debug",
+      t = { function()
         require("user.cmds").buildProjectBefore(function()
           require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
         end)
+      end, "Debug Test File" },
+      d = { function()
+        require("user.cmds").buildProjectBefore(function()
+          require("dap").continue()
+        end)
       end, "Debug File" },
+
     },
-    b = { "<cmd> lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" }
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" },
+    U = { "<cmd>lua require('dapui').toggle()<CR>", "DAP UI Toggle" },
+    C = { "<cmd>lua require('dapui').close()<CR>", "DAP UI Close" }
   }, {
     mode = "n", -- NORMAL mode
     prefix = ",",
