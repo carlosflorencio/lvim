@@ -29,6 +29,7 @@ diagnostics_message.default = {
     ),
   },
 }
+
 function diagnostics_message:init(options)
   diagnostics_message.super:init(options)
   self.options.colors = vim.tbl_extend("force", diagnostics_message.default.colors, self.options.colors or {})
@@ -73,6 +74,21 @@ function diagnostics_message:update_status(is_focused)
   end
 end
 
+--- @param trunc_len number truncates component to trunc_len number of chars
+--- return function that can format the component accordingly
+local function trunc(trunc_len)
+  return function(str)
+    if str:match("%d$") ~= nil then
+      -- could be a stacked pr, lets show the last chars
+      local lastChars = 3
+      local len = string.len(str)
+      return str:sub(1, trunc_len - lastChars) .. "..." .. str:sub(len - lastChars + 1)
+    else
+      return str:sub(1, trunc_len) .. "..."
+    end
+  end
+end
+
 local components = require("lvim.core.lualine.components")
 local package_info = require("package-info") -- package.json
 
@@ -90,3 +106,24 @@ lvim.builtin.lualine.sections.lualine_c = {
   "lsp_progress",
   package_info.get_status
 }
+
+components.branch.fmt = trunc(30, false)
+lvim.builtin.lualine.sections.lualine_b = {
+  components.branch,
+}
+
+
+lvim.builtin.lualine.sections.lualine_x = {
+  components.lsp,
+  components.filetype,
+  "searchcount"
+}
+
+
+lvim.builtin.lualine.sections.lualine_y = {
+  "overseer",
+  components.diagnostics,
+}
+
+
+lvim.builtin.lualine.sections.lualine_z = {}

@@ -1,1 +1,1 @@
-lvim.builtin.cmp.experimental.ghost_text = true
+lvim.builtin.cmp.experimental.ghost_text = false

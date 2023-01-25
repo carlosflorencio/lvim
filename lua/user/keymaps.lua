@@ -11,7 +11,10 @@ lvim.keys.normal_mode["<C-c>"] = ":BufferKill<CR>" -- close buffer
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
--- lvim.keys.normal_mode["/"] = ":silent! /"
+
+-- switch buffers with tab
+lvim.keys.normal_mode["<tab>"] = ":bn!<cr>"
+lvim.keys.normal_mode["<s-tab>"] = ":bp!<cr>"
 
 -- Search and replace word under cursor using <F2>
 vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
@@ -37,7 +40,7 @@ lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
 
 -- harpoon
-lvim.keys.normal_mode["<s-tab>"] = "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>"
+-- lvim.keys.normal_mode["<s-tab>"] = "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>"
 
 -- folds
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
@@ -78,7 +81,7 @@ lvim.builtin.which_key.mappings["gy"] = "Github Link" -- git linker plugin
 
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
-  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+  b = { "<cmd>Telescope git_branches initial_mode=normal<cr>", "Checkout branch" },
   d = { "<cmd>Telescope diagnostics<cr>", "LSP Diagnostics" },
   g = { "<cmd>Telescope git_status<cr>", "Git changed files" },
   c = { "<cmd>Telescope command_history initial_mode=normal<cr>", "Command History" },
@@ -232,7 +235,13 @@ lvim.builtin.which_key.on_config_done = function(wk)
     },
     b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" },
     U = { "<cmd>lua require('dapui').toggle()<CR>", "DAP UI Toggle" },
-    C = { "<cmd>lua require('dapui').close()<CR>", "DAP UI Close" }
+    C = { "<cmd>lua require('dapui').close()<CR>", "DAP UI Close" },
+    o = {
+      name = "Overseer Tasks",
+      o = { "<cmd>OverseerRun<cr>", "Run a Task" },
+      t = { "<cmd>OverseerToggle<cr>", "Toggle Task List" },
+      e = { "<cmd>OverseerQuickAction<cr>", "Edit the current Task" }
+    }
   }, {
     mode = "n", -- NORMAL mode
     prefix = ",",

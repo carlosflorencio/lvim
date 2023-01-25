@@ -307,6 +307,13 @@ lvim.plugins = {
     end,
   },
   {
+    -- task runner
+    'stevearc/overseer.nvim',
+    config = function()
+      require("user.plugins.configs.overseer")
+    end
+  },
+  {
     "nvim-neotest/neotest",
     module = "neotest",
     requires = {
