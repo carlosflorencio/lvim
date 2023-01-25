@@ -78,6 +78,10 @@ end
 --- return function that can format the component accordingly
 local function trunc(trunc_len)
   return function(str)
+    if str:len() < trunc_len then
+      return str
+    end
+
     if str:match("%d$") ~= nil then
       -- could be a stacked pr, lets show the last chars
       local lastChars = 3

@@ -26,3 +26,5 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 lvim.builtin.alpha.enabled = false
+lvim.builtin.terminal.active = true
+lvim.builtin.project.patterns = { ".git" }

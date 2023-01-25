@@ -273,16 +273,6 @@ lvim.plugins = {
     end
   },
   {
-    -- autocomplete lists
-    "dkarter/bullets.vim",
-    ft = {
-      "markdown",
-      "text",
-      "tex",
-      "plaintex",
-    },
-  },
-  {
     -- expand <C-a>/<C-x> toggles increments
     "nat-418/boole.nvim",
     config = function()
@@ -485,16 +475,17 @@ lvim.plugins = {
       require("user.plugins.configs.lsp_signature")
     end,
   },
-  -- {
-  --   -- needs to be the last one, otherwise PackerSync fails on the first setup install
-  --   "ahmedkhalf/lsp-rooter.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp-rooter").setup()
-  --   end,
-  -- },
+  {
+    -- smart lists on text files, needs to be at the end to avoid plugin clashes
+    "gaoDean/autolist.nvim",
+    ft = {
+      "markdown",
+      "text",
+      "tex",
+      "plaintex",
+    },
+    config = function()
+      require("user.plugins.configs.autolist")
+    end,
+  },
 }
-
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.terminal.active = true
-lvim.builtin.project.patterns = { ".git" }
