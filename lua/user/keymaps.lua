@@ -251,3 +251,20 @@ lvim.builtin.which_key.on_config_done = function(wk)
     nowait = true, -- use `nowait` when creating keymaps
   })
 end
+
+function DiffviewToggle()
+  local lib = require("diffview.lib")
+
+  local view = lib.get_current_view()
+  if view then
+    -- Current tabpage is a Diffview; close it
+    vim.cmd(":DiffviewClose")
+    -- vim.cmd(":WindowsEnableAutowidth")
+  else
+    -- No open Diffview exists: open a new one
+    -- vim.cmd(":WindowsDisableAutowidth")
+    vim.cmd(":DiffviewOpen")
+  end
+end
+
+lvim.builtin.which_key.mappings["g"]["D"] = { "<cmd>lua DiffviewToggle()<cr>", "DiffView Toggle" }

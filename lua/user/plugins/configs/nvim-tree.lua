@@ -11,6 +11,14 @@ lvim.builtin.nvimtree.setup.git.ignore = true
 lvim.builtin.nvimtree.setup.git.show_on_dirs = false
 lvim.builtin.nvimtree.setup.renderer.symlink_destination = false
 
+lvim.builtin.nvimtree.setup.tab = {
+  sync = {
+    open = true,
+    close = true,
+    ignore = {},
+  },
+}
+
 -- lvim.builtin.nvimtree.setup.hijack_directories = {
 --   enable = false,
 --   auto_open = true,

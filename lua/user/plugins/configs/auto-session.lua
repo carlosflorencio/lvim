@@ -7,6 +7,8 @@ require("auto-session").setup {
     "/",
   },
 
+  auto_session_use_git_branch = true
+
   -- postrestore_cmds = {
   --   function()
   --     return [[echo "hello world"]]

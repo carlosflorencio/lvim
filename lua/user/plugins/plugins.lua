@@ -1,6 +1,7 @@
 lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
   { "Yazeed1s/oh-lucy.nvim" }, -- theme
+  { "shaunsingh/nord.nvim" }, -- theme
   {
     -- theme
     'uloco/bluloco.nvim',
@@ -415,7 +416,10 @@ lvim.plugins = {
   },
   {
     "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen" }
+    cmd = { "DiffviewOpen" },
+    config = function()
+      require("user.plugins.configs.diffview")
+    end
   },
   {
     -- split/join code
