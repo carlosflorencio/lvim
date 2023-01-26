@@ -2,6 +2,7 @@ local M = {}
 
 M.projectPaths = {}
 M.projectPaths["tracker-api"] = "Geartrack/tracker%-api/"
+M.projectPaths["web"] = "Careerfairy/web/"
 
 M.buildProjectBefore = function(callback)
   local bufPath = vim.api.nvim_buf_get_name(0)

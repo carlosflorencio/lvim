@@ -2,6 +2,11 @@ lvim.colorscheme = 'bluloco'
 lvim.log.level = "warn"
 lvim.debug = false
 
+-- Tab set to two spaces
+-- vim.opt.tabstop = 3
+-- vim.opt.shiftwidth = 3
+-- vim.opt.softtabstop = 3
+
 -- Toggle via :LvimToggleFormatOnSave
 lvim.format_on_save.enabled = true
 -- lvim.format_on_save.pattern = "*/web/*"
