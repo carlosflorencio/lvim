@@ -417,6 +417,7 @@ lvim.plugins = {
   {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen" },
+    module = "diffview",
     config = function()
       require("user.plugins.configs.diffview")
     end

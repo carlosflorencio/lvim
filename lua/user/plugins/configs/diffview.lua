@@ -17,7 +17,6 @@ require("diffview").setup({
       { "n", "<space>", actions.toggle_stage_entry, { desc = "Stage / unstage the selected entry." } },
       { "n", "<C-w><C-f>", actions.goto_file_split, { desc = "Open the file in a new split" } },
       { "n", "<C-t>", actions.goto_file_tab, { desc = "Open the file in a new tabpage" } },
-      { "n", "<C-l>", actions.cycle_layout, { desc = "Cycle available layouts" } },
     },
   },
 
