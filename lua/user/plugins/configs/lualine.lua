@@ -95,6 +95,7 @@ end
 
 local components = require("lvim.core.lualine.components")
 local package_info = require("package-info") -- package.json
+require("user.plugins.configs.lualine.wakatime")
 
 lvim.builtin.lualine.sections.lualine_c = {
   -- components.filename,
@@ -111,7 +112,7 @@ lvim.builtin.lualine.sections.lualine_c = {
   package_info.get_status
 }
 
-components.branch.fmt = trunc(30, false)
+components.branch.fmt = trunc(30)
 lvim.builtin.lualine.sections.lualine_b = {
   components.branch,
 }
@@ -120,7 +121,8 @@ lvim.builtin.lualine.sections.lualine_b = {
 lvim.builtin.lualine.sections.lualine_x = {
   components.lsp,
   components.filetype,
-  "searchcount"
+  "searchcount",
+  Lualine_get_wakatime
 }
 
 
