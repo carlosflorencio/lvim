@@ -268,10 +268,7 @@ lvim.plugins = {
     ft = {
       "typescriptreact",
       "javascriptreact",
-    },
-    config = function()
-      require('nvim-rename-state').setup()
-    end
+    }
   },
   {
     -- expand <C-a>/<C-x> toggles increments
@@ -393,6 +390,11 @@ lvim.plugins = {
       require("tabout").setup()
     end,
   },
+  -- {
+  --   -- google keep
+  --   'stevearc/gkeep.nvim',
+  --   run = ':UpdateRemotePlugins',
+  -- },
   {
     -- reminder to commit more frequently
     "redve-dev/neovim-git-reminder",
@@ -456,16 +458,16 @@ lvim.plugins = {
       "nvim-telescope/telescope.nvim"
     },
   },
-  {
-    "ThePrimeagen/harpoon",
-    requires = {
-      "nvim-telescope/telescope.nvim"
-    },
-    module = "harpoon",
-    config = function()
-      require("telescope").load_extension "harpoon"
-    end
-  },
+  -- {
+  --   "ThePrimeagen/harpoon",
+  --   requires = {
+  --     "nvim-telescope/telescope.nvim"
+  --   },
+  --   module = "harpoon",
+  --   config = function()
+  --     require("telescope").load_extension "harpoon"
+  --   end
+  -- },
   {
     "simrat39/inlay-hints.nvim",
     module = "inlay-hints",

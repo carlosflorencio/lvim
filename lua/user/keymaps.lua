@@ -20,7 +20,6 @@ lvim.keys.normal_mode["<s-tab>"] = ":bp!<cr>"
 vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
 
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
-lvim.keys.visual_mode["y"] = "y`]" -- prevent going up when yanking
 
 -- Regex explainer hide
 vim.keymap.set('n', '<esc>', '<cmd>RegexplainerHide<cr>')
@@ -32,6 +31,8 @@ vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
 vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+vim.keymap.set({ "n", "i" }, "<c-v>", "<esc><cmd>Telescope yank_history initial_mode=normal<cr>")
+vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") -- prevent going up when yanking
 
 -- jumps
 lvim.keys.normal_mode["]e"] = vim.diagnostic.goto_next
@@ -64,8 +65,6 @@ lvim.lsp.buffer_mappings.normal_mode["gpi"] = { "<cmd>Glance implementations<cr>
 -- move the cursor without leaving insert mode
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
 lvim.keys.insert_mode["<A-l>"] = "<Right>"
-lvim.keys.insert_mode["<c-p>"] = "<ESC>p" -- paste in insert mode
-
 
 lvim.builtin.which_key.mappings["h"] = {
   name = "misc",
@@ -192,7 +191,7 @@ lvim.builtin.which_key.mappings["p"]["v"] = { "<cmd>lua require('package-info').
   "Package.json Change Version Dep" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<cr>", "Floating file explorer Lir" }
 lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
-lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers previewer=false ignore_current_buffer=true sort_mru=true<cr>",
+lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers show_all_buffers=false previewer=false ignore_current_buffer=true sort_mru=true<cr>",
   "Find" }
 
 

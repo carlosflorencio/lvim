@@ -1,5 +1,6 @@
 lvim.builtin.telescope.defaults.file_ignore_patterns = { ".git", "node_modules" }
 lvim.builtin.telescope.defaults.path_display = { "truncate" }
+lvim.builtin.telescope.defaults.dynamic_preview_title = true
 
 local layout_config = {
   horizontal = {
@@ -39,4 +40,5 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "luasnip")
   pcall(telescope.load_extension, "smart_open")
   pcall(telescope.load_extension, "undo")
+  pcall(telescope.load_extension, "yank_history")
 end
