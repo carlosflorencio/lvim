@@ -34,6 +34,23 @@ lvim.builtin.telescope.pickers.live_grep = {
 --   show_scores = true
 -- }
 
+local lga_actions = require("telescope-live-grep-args.actions")
+lvim.builtin.telescope.extensions.live_grep_args = {
+  auto_quoting = true, -- enable/disable auto-quoting
+  -- define mappings, e.g.
+  mappings = { -- extend mappings
+    i = {
+      ["<C-k>"] = lga_actions.quote_prompt(),
+      ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+    },
+  },
+  -- ... also accepts theme settings, for example:
+  -- theme = "dropdown", -- use dropdown theme
+  -- theme = { }, -- use own theme spec
+  -- layout_config = { mirror=true }, -- mirror preview pane
+}
+
+
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "dap")
   pcall(telescope.load_extension, "notify")
@@ -41,4 +58,5 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "smart_open")
   pcall(telescope.load_extension, "undo")
   pcall(telescope.load_extension, "yank_history")
+  pcall(telescope.load_extension, "live_grep_args")
 end

@@ -23,6 +23,10 @@ lvim.plugins = {
     ft = 'qf',
   },
   {
+    -- live grep certain dirs <c-k>
+    "nvim-telescope/telescope-live-grep-args.nvim",
+  },
+  {
     -- package.json update actions
     "vuki656/package-info.nvim",
     requires = "MunifTanjim/nui.nvim",

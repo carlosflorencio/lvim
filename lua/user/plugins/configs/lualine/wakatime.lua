@@ -1,5 +1,6 @@
 -- https://github.com/wakatime/vim-wakatime/issues/110#issuecomment-1407862842
 local uv = require("luv")
+local utils = require("user.utils")
 
 local current_time = ""
 local function set_interval(interval, callback)
@@ -36,7 +37,11 @@ local function update_wakatime()
     function(err, data)
       assert(not err, err)
       if data then
-        current_time = "🅆 " .. data:sub(1, #data - 2) .. " "
+        local parsed = utils.trim(data)
+        local parts = utils.split(parsed)
+        if parts[1] ~= nil and parts[3] ~= nil then
+          current_time = " " .. parts[1] .. "h" .. parts[3] .. "m"
+        end
       end
     end
   )
