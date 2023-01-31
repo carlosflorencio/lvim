@@ -1,7 +1,7 @@
 lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
   { "Yazeed1s/oh-lucy.nvim" }, -- theme
-  { "shaunsingh/nord.nvim" }, -- theme
+  { "AlexvZyl/nordic.nvim" }, -- theme
   {
     -- theme
     'uloco/bluloco.nvim',
