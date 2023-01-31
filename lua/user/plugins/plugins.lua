@@ -170,7 +170,7 @@ lvim.plugins = {
     "dnlhc/glance.nvim",
     cmd = { "Glance" },
     config = function()
-      require("glance").setup()
+      require("user.plugins.configs.glance")
     end
   },
   {
@@ -297,6 +297,11 @@ lvim.plugins = {
     setup = function()
       require("user.plugins.configs.matchup")
     end,
+  },
+  {
+    -- detect correct tab width between files, e.g prettier 3 spaces
+    'nmac427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end,
   },
   {
     -- task runner

@@ -31,20 +31,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- cf uses prettier tabWidth of 3
-vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
-  group = group,
-  pattern = {
-    "*/Careerfairy/web/**/*.ts",
-    "*/Careerfairy/web/**/*.js",
-    "*/Careerfairy/web/**/*.json",
-    "*/Careerfairy/web/**/*.yml",
-  },
-  callback = function()
-    vim.bo.tabstop = 3
-    vim.bo.shiftwidth = 3
-    vim.bo.softtabstop = 3
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
+--   group = group,
+--   pattern = {
+--     "*/Careerfairy/web/**/*.ts",
+--     "*/Careerfairy/web/**/*.js",
+--     "*/Careerfairy/web/**/*.json",
+--     "*/Careerfairy/web/**/*.yml",
+--   },
+--   callback = function()
+--     vim.bo.tabstop = 3
+--     vim.bo.shiftwidth = 3
+--     vim.bo.softtabstop = 3
+--   end,
+-- })
 
 
 -- vim.api.nvim_create_autocmd({ 'User' }, {

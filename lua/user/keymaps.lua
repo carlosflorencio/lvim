@@ -7,7 +7,9 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- use c-e & c-y for scrolling
 lvim.keys.normal_mode["zj"] = "o<ESC>k"
 lvim.keys.normal_mode["zk"] = "O<ESC>j"
-lvim.keys.normal_mode["<C-c>"] = ":BufferKill<CR>" -- close buffer
+-- lvim.keys.normal_mode["<C-c>"] = ":BufferKill<CR>" -- close buffer
+-- lvim.keys.normal_mode["<C-c>"] = ":bn|bd #<CR>" -- close buffer
+lvim.keys.normal_mode["<C-c>"] = ":bn|sp|bp|bd<CR>" -- close buffer
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
@@ -56,11 +58,11 @@ vim.keymap.set('n', 'K', function()
 end)
 
 -- lSP
-lvim.lsp.buffer_mappings.normal_mode["gi"] = { vim.lsp.buf.implementation, "Go to implementation" }
-lvim.lsp.buffer_mappings.normal_mode["gpd"] = { "<cmd>Glance definitions<cr>", "Preview Definitions" }
-lvim.lsp.buffer_mappings.normal_mode["gpr"] = { "<cmd>Glance references<cr>", "Preview References" }
-lvim.lsp.buffer_mappings.normal_mode["gpt"] = { "<cmd>Glance type_definitions<cr>", "Preview Type Definitions" }
-lvim.lsp.buffer_mappings.normal_mode["gpi"] = { "<cmd>Glance implementations<cr>", "Preview implementations" }
+-- lvim.lsp.buffer_mappings.normal_mode["gi"] = { vim.lsp.buf.implementation, "Go to implementation" }
+lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Glance definitions<cr>", "Preview Definitions" }
+lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Glance references<cr>", "Preview References" }
+lvim.lsp.buffer_mappings.normal_mode["gt"] = { "<cmd>Glance type_definitions<cr>", "Preview Type Definitions" }
+lvim.lsp.buffer_mappings.normal_mode["gi"] = { "<cmd>Glance implementations<cr>", "Preview implementations" }
 
 -- move the cursor without leaving insert mode
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
@@ -74,7 +76,7 @@ lvim.builtin.which_key.mappings["h"] = {
 }
 
 lvim.builtin.which_key.mappings["q"] = { "<cmd>qa<cr>", "Quit All" }
-lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
+-- lvim.builtin.which_key.mappings["x"] = { "<cmd>BufferKill<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings["gy"] = "Github Link" -- git linker plugin
 
@@ -192,7 +194,7 @@ lvim.builtin.which_key.mappings["p"]["v"] = { "<cmd>lua require('package-info').
   "Package.json Change Version Dep" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<cr>", "Floating file explorer Lir" }
 lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
-lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers show_all_buffers=false previewer=false ignore_current_buffer=true sort_mru=true<cr>",
+lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers show_all_buffers=true previewer=false ignore_current_buffer=true sort_mru=true<cr>",
   "Find" }
 
 
@@ -268,3 +270,4 @@ function DiffviewToggle()
 end
 
 lvim.builtin.which_key.mappings["g"]["D"] = { "<cmd>lua DiffviewToggle()<cr>", "DiffView Toggle" }
+lvim.builtin.which_key.mappings["<space>"] = { "<c-^>", "Cycle between Previous Buffer" }
