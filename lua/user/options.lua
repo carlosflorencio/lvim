@@ -19,6 +19,7 @@ vim.opt.hlsearch       = false
 vim.opt.relativenumber = true
 vim.opt.scrolloff      = 10
 vim.opt.cursorline     = true
+vim.o.breakindent      = true
 
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
 

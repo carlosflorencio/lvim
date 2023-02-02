@@ -42,6 +42,18 @@ lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_prev
 lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
 
+
+-- fuzzy search current buffer
+vim.keymap.set('n', '<c-/>', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer]' })
+
+
+
 -- harpoon
 -- lvim.keys.normal_mode["<s-tab>"] = "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>"
 
@@ -50,12 +62,6 @@ vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
 vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-vim.keymap.set('n', 'K', function()
-  local winid = require('ufo').peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
-  end
-end)
 
 -- lSP
 -- lvim.lsp.buffer_mappings.normal_mode["gi"] = { vim.lsp.buf.implementation, "Go to implementation" }
@@ -63,6 +69,12 @@ lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Glance definitions<cr>", "P
 lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Glance references<cr>", "Preview References" }
 lvim.lsp.buffer_mappings.normal_mode["gt"] = { "<cmd>Glance type_definitions<cr>", "Preview Type Definitions" }
 lvim.lsp.buffer_mappings.normal_mode["gi"] = { "<cmd>Glance implementations<cr>", "Preview implementations" }
+lvim.lsp.buffer_mappings.normal_mode["K"] = { function()
+  local winid = require('ufo').peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
+end, "Hover LSP or UFO peek" }
 
 -- move the cursor without leaving insert mode
 lvim.keys.insert_mode["<A-h>"] = "<Left>"
@@ -89,6 +101,7 @@ lvim.builtin.which_key.mappings["f"] = {
   a = { "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>", "Find All Files" },
   -- f = { "<cmd>Telescope find_files<cr>", "Find Project File" },
   f = { "<Cmd>lua require('telescope').extensions.smart_open.smart_open()<CR>", "Find Project File" },
+  i = { "<Cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Find workspace symbols" },
   h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
   m = { require("lvim.lsp.utils").format, "Format" },
@@ -98,7 +111,7 @@ lvim.builtin.which_key.mappings["f"] = {
   -- w = { "<cmd>Telescope live_grep<cr>", "Grep Text" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
-  s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+  s = { "<cmd>Telescope aerial<cr>", "Document Symbols by Aerial" },
   p = { "<cmd>Telescope projects<cr>", "Projects" },
   S = { "<cmd>Telescope luasnip theme=dropdown<cr>", "Snippets" },
   u = { "<cmd>Telescope undo<cr>", "Undo list" },
