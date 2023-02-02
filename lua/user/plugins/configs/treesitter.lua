@@ -34,6 +34,7 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.treesitter.playground.enable = true
 
 -- important for correct tsx indentation
 lvim.builtin.treesitter.highlight.additional_vim_regex_highlighting = true
@@ -70,5 +71,25 @@ lvim.builtin.treesitter.textobjects = {
 
     },
     include_surrounding_whitespace = false,
+  },
+  move = {
+    enable = true,
+    set_jumps = true, -- whether to set jumps in the jumplist
+    goto_next_start = {
+      [']]'] = '@function.outer',
+      -- [']]'] = '@class.outer',
+    },
+    goto_next_end = {
+      [']M'] = '@function.outer',
+      -- [']['] = '@class.outer',
+    },
+    goto_previous_start = {
+      ['[['] = '@function.outer',
+      -- ['[['] = '@class.outer',
+    },
+    goto_previous_end = {
+      ['[M'] = '@function.outer',
+      -- ['[]'] = '@class.outer',
+    },
   },
 }

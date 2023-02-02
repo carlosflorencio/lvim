@@ -292,6 +292,9 @@ lvim.plugins = {
     end
   },
   {
+    "nvim-treesitter/playground"
+  },
+  {
     -- % match ifs, etc
     "andymass/vim-matchup",
     setup = function()
