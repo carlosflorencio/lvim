@@ -23,15 +23,26 @@ lvim.plugins = {
     ft = 'qf',
   },
   {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
+    },
+    config = function()
+      require('refactoring').setup({})
+    end
+
+  },
+  {
     -- live grep certain dirs <c-k>
     "nvim-telescope/telescope-live-grep-args.nvim",
   },
   {
-    -- package.json update actions
+    -- package.json update actions, <leader>pv to change version
     "vuki656/package-info.nvim",
     requires = "MunifTanjim/nui.nvim",
     config = function()
-      require('package-info').setup()
+      require("user.plugins.configs.package-info")
     end
   },
   {
@@ -51,7 +62,7 @@ lvim.plugins = {
       require("user.plugins.configs.scrollbar")
     end
   },
-  { "PatschD/zippy.nvim", module = "zippy" }, -- log variables under cursor
+  -- { "PatschD/zippy.nvim", module = "zippy" }, -- log variables under cursor
   { "stevearc/dressing.nvim" }, -- improve vim ui's
   { "nvim-telescope/telescope-dap.nvim" },
   {

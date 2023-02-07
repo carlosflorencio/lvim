@@ -174,7 +174,9 @@ lvim.builtin.which_key.mappings["t"] = {
 
 lvim.builtin.which_key.mappings["d"] = {
   name = "Debug",
-  d = { "<cmd>lua require('zippy').insert_print()<CR>", "Add log to current variable" },
+  d = { "<cmd>lua require('refactoring').debug.printf({below = false})<CR>", "Debug statement using print" },
+  v = { "<cmd>lua require('refactoring').debug.print_var({})<CR>", "Debug variable - print" },
+  D = { "<cmd>lua require('refactoring').debug.cleanup({})<CR>", "Clean variable debugs" },
   r = { "<cmd>SnipRun<CR>", "Run the current line using Snip" },
   s = { "<cmd>CodiNew<CR>", "Creates a new Scratch buffer" }
 }
@@ -200,7 +202,13 @@ lvim.builtin.which_key.mappings["r"] = {
   f = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Git File" },
 }
 
-lvim.builtin.which_key.mappings["l"]["R"] = { "<cmd>RenameState<cr>", "Rename React Hooks args" }
+lvim.builtin.which_key.mappings["l"]["m"] = { "<cmd>RenameState<cr>", "Rename React Hooks args" }
+
+lvim.builtin.which_key.vmappings["l"] = {
+  ["r"] = {
+    "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactoring"
+  }
+}
 
 lvim.builtin.which_key.mappings["p"]["p"] = { "<cmd>Glow<cr>", "Preview" }
 lvim.builtin.which_key.mappings["p"]["v"] = { "<cmd>lua require('package-info').change_version()<cr>",

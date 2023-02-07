@@ -60,4 +60,5 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "yank_history")
   pcall(telescope.load_extension, "live_grep_args")
   pcall(telescope.load_extension, "aerial")
+  pcall(telescope.load_extension, "refactoring")
 end
