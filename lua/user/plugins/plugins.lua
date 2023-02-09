@@ -46,6 +46,13 @@ lvim.plugins = {
     end
   },
   {
+    -- hide cursorline in split windows
+    'tummetott/reticle.nvim',
+    config = function()
+      require('reticle').setup({})
+    end
+  },
+  {
     -- expand windows
     "anuvyklack/windows.nvim",
     requires = {
@@ -242,21 +249,6 @@ lvim.plugins = {
       require("user.plugins.configs.rest")
     end
   },
-  -- {
-  --   "folke/zen-mode.nvim",
-  --   config = function()
-  --     require("zen-mode").setup({
-  --       plugins = {
-  --         options = {
-  --           enabled = true,
-  --           ruler = true, -- disables the ruler text in the cmd line area
-  --           showcmd = true, -- disables the command in the last line of the screen
-  --         },
-  --         gitsigns = { enabled = true }
-  --       }
-  --     })
-  --   end
-  -- },
   {
     -- require("notify")("My super important message"), overrides vim.notify
     "rcarriga/nvim-notify",
@@ -293,7 +285,6 @@ lvim.plugins = {
     end
   },
   { "elihunter173/dirbuf.nvim", cmd = { "Dirbuf" } }, -- edit fs as a buffer
-  { "smithbm2316/centerpad.nvim", module = "centerpad" },
   {
     -- folds
     'kevinhwang91/nvim-ufo',
@@ -385,24 +376,13 @@ lvim.plugins = {
     -- https://github.com/mxsdev/nvim-dap-vscode-js/issues/23
     tag = 'v1.74.1'
   },
-  -- {
-  --   -- center buffer
-  --   "shortcuts/no-neck-pain.nvim",
-  --   -- tag = "*",
-  --   config = function()
-  --     require("no-neck-pain").setup({
-  --       toggleMapping = false,
-  --       width = 120,
-  --       integrations = {
-  --         NvimTree = {
-  --           -- Paired with the `close` parameter, when `false` we don't re-open the side tree.
-  --           reopen = false,
-  --         },
-  --       },
-  --     })
-  --   end
-  -- },
-
+  {
+    "folke/zen-mode.nvim",
+    cmd = { "ZenMode" },
+    config = function()
+      require("user.plugins.configs.zen-mode")
+    end
+  },
   {
     -- insert mode navigation on tab
     "abecodes/tabout.nvim",
@@ -413,11 +393,6 @@ lvim.plugins = {
       require("tabout").setup()
     end,
   },
-  -- {
-  --   -- google keep
-  --   'stevearc/gkeep.nvim',
-  --   run = ':UpdateRemotePlugins',
-  -- },
   {
     -- reminder to commit more frequently
     "redve-dev/neovim-git-reminder",

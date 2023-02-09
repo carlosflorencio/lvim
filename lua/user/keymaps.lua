@@ -155,13 +155,9 @@ lvim.builtin.which_key.mappings["c"] = {
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "Toggle/Diagnostics",
-  -- t = {
-  --   "<cmd>NvimTreeToggle<cr><cmd>lua require'centerpad'.toggle{ leftpad = 40, rightpad = 40 }<cr>",
-  --   "Center Buffer",
-  -- },
   t = {
-    "<cmd>NoNeckPain<cr>",
-    "Center Buffer",
+    "<cmd>ZenMode<cr>",
+    "Center Buffer - Zen Mode",
   },
   g = { "<cmd>TroubleToggle<cr>", "trouble" },
   w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
