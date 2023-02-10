@@ -42,7 +42,6 @@ lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_prev
 lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
 
-
 -- fuzzy search current buffer
 vim.keymap.set('n', '<c-/>', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -181,6 +180,12 @@ lvim.builtin.which_key.vmappings["d"] = {
   name = "Debug",
   r = { "<cmd>SnipRun<CR>", "Run the current block using Snip" }
 }
+
+lvim.builtin.which_key.vmappings["s"] = {
+  name = "Snippet",
+  p = { function() require("silicon").visualise_api({ to_clip = true }) end, "Silicon code screenshot" }
+}
+
 
 lvim.builtin.which_key.mappings["o"] = {
   name = "Organize",

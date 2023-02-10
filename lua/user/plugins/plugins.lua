@@ -474,6 +474,15 @@ lvim.plugins = {
     end
   },
   {
+    -- code screenshots
+    "narutoxy/silicon.lua",
+    requires = { "nvim-lua/plenary.nvim" },
+    module = "silicon",
+    config = function()
+      require("user.plugins.configs.silicon")
+    end
+  },
+  {
     -- improved autocomplete on functions
     "ray-x/lsp_signature.nvim",
     config = function()
