@@ -2,6 +2,7 @@ lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
   { "Yazeed1s/oh-lucy.nvim" }, -- theme
   { "AlexvZyl/nordic.nvim" }, -- theme
+  { "ellisonleao/gruvbox.nvim" }, -- theme
   {
     -- theme
     'uloco/bluloco.nvim',
@@ -236,9 +237,7 @@ lvim.plugins = {
       'kyazdani42/nvim-web-devicons',
     },
     config = function()
-      require("octo").setup({
-        use_local_fs = true -- use local files on right side of reviews, enables LSP
-      })
+      require("user.plugins.configs.octo")
     end,
   },
   {

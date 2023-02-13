@@ -195,6 +195,7 @@ lvim.builtin.which_key.mappings["o"] = {
   r = { "<cmd>Octo review resume<cr>", "Octo Review Resume" },
   s = { "<cmd>Octo review submit<cr>", "Octo Review Submit" },
   R = { "<cmd>Octo review start<cr>", "Octo Review Start" },
+  D = { "<cmd>Octo review discard<cr>", "Octo Review Discard" },
 }
 
 lvim.builtin.which_key.mappings["r"] = {
@@ -256,6 +257,12 @@ lvim.builtin.which_key.on_config_done = function(wk)
         end)
       end, "Debug File" },
 
+    },
+    h = {
+      name = "HTTP",
+      h = { "<Plug>RestNvim", "Run request under cursor" },
+      p = { "<Plug>RestNvimPreview", "Preview the curl command under cursor" },
+      l = { "<Plug>RestNvimLast", "Run last http request" },
     },
     b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" },
     U = { "<cmd>lua require('dapui').toggle()<CR>", "DAP UI Toggle" },

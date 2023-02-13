@@ -21,9 +21,7 @@ require("rest-nvim").setup({
     -- set them to false if you want to disable them
     formatters = {
       json = "jq",
-      html = function(body)
-        return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-      end
+      html = false
     },
   },
   -- Jump to request line on run
