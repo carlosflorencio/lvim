@@ -15,8 +15,8 @@ lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
 
 -- switch buffers with tab
-lvim.keys.normal_mode["<tab>"] = ":bn!<cr>"
-lvim.keys.normal_mode["<s-tab>"] = ":bp!<cr>"
+-- lvim.keys.normal_mode["<tab>"] = ":bn!<cr>"
+-- lvim.keys.normal_mode["<s-tab>"] = ":bp!<cr>"
 
 -- Search and replace word under cursor using <F2>
 vim.cmd [[ nnoremap <F2> :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]]
@@ -36,11 +36,13 @@ vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 vim.keymap.set({ "n", "i" }, "<c-v>", "<esc><cmd>Telescope yank_history initial_mode=normal<cr>")
 vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") -- prevent going up when yanking
 
--- jumps
+-- jumps / cycles
 lvim.keys.normal_mode["]e"] = vim.diagnostic.goto_next
 lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_prev
 lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>"
 lvim.keys.normal_mode["[c"] = "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>"
+lvim.keys.normal_mode["]b"] = require('goto-breakpoints').next
+lvim.keys.normal_mode["[b"] = require('goto-breakpoints').prev
 
 -- fuzzy search current buffer
 vim.keymap.set('n', '<c-/>', function()
@@ -265,7 +267,18 @@ lvim.builtin.which_key.on_config_done = function(wk)
       p = { "<Plug>RestNvimPreview", "Preview the curl command under cursor" },
       l = { "<Plug>RestNvimLast", "Run last http request" },
     },
-    b = { "<cmd>lua require'dap'.toggle_breakpoint()<CR>", "DAP Toggle Breakpoint" },
+    b = {
+      name = "Breakpoints",
+      b = {
+        "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<CR>",
+        "Toggle Breakpoint",
+      },
+      c = {
+        "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<CR>",
+        "Conditional Breakpoint",
+      },
+      d = { "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", "Delete all breakpoints" },
+    },
     U = { "<cmd>lua require('dapui').toggle()<CR>", "DAP UI Toggle" },
     C = { "<cmd>lua require('dapui').close()<CR>", "DAP UI Close" },
     o = {

@@ -293,6 +293,18 @@ lvim.plugins = {
     end
   },
   {
+    -- some typescript useful commands, e.g add missing imports
+    -- config on the tssserver.lua
+    "jose-elias-alvarez/typescript.nvim",
+  },
+  {
+    -- better macros, q, Q, cq (edit), ## breakpoint
+    "chrisgrieser/nvim-recorder",
+    config = function()
+      require("user.plugins.configs.recorder")
+    end,
+  },
+  {
     -- rename react hooks args :RenameState
     "olrtg/nvim-rename-state",
     cmd = { "RenameState" },
@@ -400,6 +412,15 @@ lvim.plugins = {
     -- https://github.com/mxsdev/nvim-dap-vscode-js/issues/23
     tag = 'v1.74.1'
   },
+  {
+    'Weissle/persistent-breakpoints.nvim',
+    config = function()
+      require('persistent-breakpoints').setup {
+        load_breakpoints_event = { "BufReadPost" }
+      }
+    end
+  },
+  { 'ofirgall/goto-breakpoints.nvim' },
   {
     "theHamsta/nvim-dap-virtual-text",
     config = function()
@@ -518,6 +539,13 @@ lvim.plugins = {
     config = function()
       require("user.plugins.configs.lsp_signature")
     end,
+  },
+  {
+    -- highlight colors
+    'NvChad/nvim-colorizer.lua',
+    config = function()
+      require("user.plugins.configs.colorizer")
+    end
   },
   {
     -- smart lists on text files, needs to be at the end to avoid plugin clashes
