@@ -13,24 +13,25 @@ local function set_interval(interval, callback)
   return timer
 end
 
+
 local function update_wakatime()
   local stdin = uv.new_pipe()
   local stdout = uv.new_pipe()
   local stderr = uv.new_pipe()
 
   local handle, pid =
-  uv.spawn(
-    "/users/carlosflorencio/Library/Python/3.9/bin/wakatime",
-    {
-      args = { "--today" },
-      stdio = { stdin, stdout, stderr }
-    },
-    function(code, signal) -- on exit
-      stdin:close()
-      stdout:close()
-      stderr:close()
-    end
-  )
+      uv.spawn(
+        "/users/carlosflorencio/Library/Python/3.9/bin/wakatime",
+        {
+          args = { "--today" },
+          stdio = { stdin, stdout, stderr }
+        },
+        function(code, signal) -- on exit
+          stdin:close()
+          stdout:close()
+          stderr:close()
+        end
+      )
 
   uv.read_start(
     stdout,
@@ -48,6 +49,10 @@ local function update_wakatime()
 end
 
 set_interval(90000, update_wakatime)
+
+vim.fn.timer_start(2000, function()
+  update_wakatime()
+end)
 
 function Lualine_get_wakatime()
   return current_time
