@@ -109,7 +109,8 @@ lvim.builtin.lualine.sections.lualine_c = {
     },
   },
   "lsp_progress",
-  package_info.get_status
+  package_info.get_status,
+  require("recorder").recordingStatus
 }
 
 components.branch.fmt = trunc(30)

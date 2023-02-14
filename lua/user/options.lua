@@ -23,7 +23,7 @@ vim.o.breakindent           = true
 
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
 
--- vim.opt.cmdheight = 0 -- hide command line unless needed
+vim.opt.cmdheight = 0 -- hide command line unless needed
 
 -- folds ufo
 vim.o.foldcolumn = '0' -- '0' is not bad
