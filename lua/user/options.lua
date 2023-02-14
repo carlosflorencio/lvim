@@ -1,6 +1,6 @@
-lvim.colorscheme = 'bluloco'
-lvim.log.level = "warn"
-lvim.debug = false
+lvim.colorscheme            = 'bluloco'
+lvim.log.level              = "warn"
+lvim.debug                  = false
 
 -- Tab set to two spaces
 -- vim.opt.tabstop = 3
@@ -11,15 +11,15 @@ lvim.debug = false
 lvim.format_on_save.enabled = true
 -- lvim.format_on_save.pattern = "*/web/*"
 
-vim.opt.shell          = "/bin/sh" -- fish is slow
-vim.opt.smartindent    = false -- needs to be false for correct tsx indentation
-vim.opt.swapfile       = false
-vim.opt.wrap           = true
-vim.opt.hlsearch       = false
-vim.opt.relativenumber = true
-vim.opt.scrolloff      = 10
-vim.opt.cursorline     = true
-vim.o.breakindent      = true
+vim.opt.shell               = "/bin/sh" -- fish is slow
+vim.opt.smartindent         = false -- needs to be false for correct tsx indentation
+vim.opt.swapfile            = false
+vim.opt.wrap                = true
+vim.opt.hlsearch            = false
+vim.opt.relativenumber      = true
+vim.opt.scrolloff           = 10
+vim.opt.cursorline          = true
+vim.o.breakindent           = true
 
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
 
@@ -34,3 +34,6 @@ vim.o.foldenable = true
 lvim.builtin.alpha.enabled = false
 lvim.builtin.terminal.active = true
 lvim.builtin.project.patterns = { ".git" }
+
+-- disable navic plugin, we use nvim-treesitter-context instead
+lvim.builtin.breadcrumbs.active = false

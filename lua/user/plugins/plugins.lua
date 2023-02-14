@@ -261,6 +261,10 @@ lvim.plugins = {
     end
   },
   {
+    -- sticky function name when scrolling down
+    'nvim-treesitter/nvim-treesitter-context'
+  },
+  {
     -- jq / yq to json/yaml files, X query items under the cursor
     "gennaro-tedesco/nvim-jqx",
     -- ft = { "json", "yaml" },
