@@ -19,7 +19,7 @@ lvim.keys.normal_mode["<tab>"] = ":bn!<cr>"
 lvim.keys.normal_mode["<s-tab>"] = ":bp!<cr>"
 
 -- Search and replace word under cursor using <F2>
-vim.cmd [[ nnoremap <F2> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i ]]
+vim.cmd [[ nnoremap <F2> :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]]
 
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
 
@@ -217,7 +217,8 @@ lvim.builtin.which_key.mappings["p"]["v"] = { "<cmd>lua require('package-info').
   "Package.json Change Version Dep" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<cr>", "Floating file explorer Lir" }
 lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
-lvim.builtin.which_key.mappings["j"] = { "<cmd>Telescope buffers show_all_buffers=true previewer=false ignore_current_buffer=true sort_mru=true<cr>",
+lvim.builtin.which_key.mappings["j"] = {
+  "<cmd>Telescope buffers show_all_buffers=true previewer=false ignore_current_buffer=true sort_mru=true<cr>",
   "Find" }
 
 
