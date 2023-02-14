@@ -1,16 +1,28 @@
 lvim.plugins = {
   { "olimorris/onedarkpro.nvim" }, -- theme
-  { "Yazeed1s/oh-lucy.nvim" }, -- theme
-  { "AlexvZyl/nordic.nvim" }, -- theme
-  { "ellisonleao/gruvbox.nvim" }, -- theme
+  -- { "Yazeed1s/oh-lucy.nvim" }, -- theme
+  -- { "AlexvZyl/nordic.nvim" }, -- theme
+  -- { "ellisonleao/gruvbox.nvim" }, -- theme
+  -- { "rebelot/kanagawa.nvim" }, -- theme
+  -- { "Shatur/neovim-ayu" }, -- theme
+  -- {
+  --   'rose-pine/neovim',
+  --   as = 'rose-pine',
+  --   config = function()
+  --     require("rose-pine").setup()
+  --     -- vim.cmd('colorscheme rose-pine')
+  --   end
+  -- },
   {
     -- theme
     'uloco/bluloco.nvim',
     requires = { 'rktjmp/lush.nvim' }
   },
-  { "catppuccin/nvim", as = "catppuccin" }, -- theme
+  -- { "catppuccin/nvim", as = "catppuccin" }, -- theme
+
+
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
-  { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
+  { "RRethy/nvim-treesitter-textsubjects",         after = "nvim-treesitter" },
   { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
   { "ethanholz/nvim-lastplace",
     config = function()
@@ -207,7 +219,7 @@ lvim.plugins = {
       require('nvim-peekup.config').on_keystroke["delay"] = ''
     end
   },
-  { "delphinus/vim-firestore", ft = { "firestore" } },
+  { "delphinus/vim-firestore",  ft = { "firestore" } },
   {
     -- preview markdown, glow needs to be installed globally
     "npxbr/glow.nvim",
@@ -247,6 +259,15 @@ lvim.plugins = {
     config = function()
       require("user.plugins.configs.rest")
     end
+  },
+  {
+    -- jq / yq to json/yaml files, X query items under the cursor
+    "gennaro-tedesco/nvim-jqx",
+    -- ft = { "json", "yaml" },
+    cmd = { "JqxList", "JqxQuery" },
+    -- config = function()
+    --   require("nvim-jqx.config").setup({})
+    -- end
   },
   {
     -- require("notify")("My super important message"), overrides vim.notify
@@ -343,7 +364,7 @@ lvim.plugins = {
   {
     -- lsp symbols table
     'stevearc/aerial.nvim',
-    cmd = { "AerialToggle" },
+    -- cmd = { "AerialToggle" },
     config = function()
       require("user.plugins.configs.aerial")
     end
