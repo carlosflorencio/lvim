@@ -1,5 +1,6 @@
 lvim.plugins = {
-  { "olimorris/onedarkpro.nvim" }, -- theme
+  -- { "olimorris/onedarkpro.nvim" }, -- theme
+  -- { "EdenEast/nightfox.nvim" }, -- theme
   -- { "Yazeed1s/oh-lucy.nvim" }, -- theme
   -- { "AlexvZyl/nordic.nvim" }, -- theme
   -- { "ellisonleao/gruvbox.nvim" }, -- theme
@@ -20,7 +21,13 @@ lvim.plugins = {
   },
   -- { "catppuccin/nvim", as = "catppuccin" }, -- theme
 
-
+  {
+    -- auto complete & preview for :, /, ?
+    'gelguy/wilder.nvim',
+    config = function()
+      require("user.plugins.configs.wilder")
+    end
+  },
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
   { "RRethy/nvim-treesitter-textsubjects",         after = "nvim-treesitter" },
   { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
