@@ -62,7 +62,7 @@ lvim.plugins = {
     -- hide cursorline in split windows
     'tummetott/reticle.nvim',
     config = function()
-      require('reticle').setup({})
+      require("user.plugins.configs.reticle")
     end
   },
   {

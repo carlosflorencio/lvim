@@ -38,7 +38,7 @@ lvim.builtin.treesitter.playground.enable = true
 
 -- important for correct tsx indentation
 lvim.builtin.treesitter.highlight.additional_vim_regex_highlighting = true
-lvim.builtin.treesitter.indent.enable = false
+lvim.builtin.treesitter.indent.enable = true
 
 lvim.builtin.treesitter.incremental_selection = {
   enable = true,
