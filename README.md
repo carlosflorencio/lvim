@@ -24,4 +24,10 @@ Always a work in progress.
   - Remove neovim included parsers from the filesystem (rename folder)
     - `/opt/homebrew/Cellar/neovim/0.8.2/share/nvim/runtime/queries`
 - Update LunarVim core plugins:
+
   - Update plugin commit hash at `~/.local/share/lunarvim/lvim/snapshots`
+
+- Update lvim core plugins:
+  - nvim-tree
+  - nvim-treesitter
+  - indent-blankline.nvim

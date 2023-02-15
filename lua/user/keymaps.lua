@@ -167,6 +167,7 @@ lvim.builtin.which_key.mappings["t"] = {
   l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
   n = { "<cmd>tabnew<cr>", "New Tab" },
+  c = { "<cmd>tabclose<cr>", "Close Tab" },
 }
 
 lvim.builtin.which_key.mappings["d"] = {
