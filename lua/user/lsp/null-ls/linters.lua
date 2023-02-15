@@ -11,4 +11,5 @@ linters.setup({
   },
   { name = "codespell" },
   { name = "fish" },
+  { name = "proselint" }
 })

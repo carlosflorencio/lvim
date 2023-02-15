@@ -83,7 +83,12 @@ lvim.plugins = {
     end
   },
   -- { "PatschD/zippy.nvim", module = "zippy" }, -- log variables under cursor
-  { "stevearc/dressing.nvim" }, -- improve vim ui's
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("user.plugins.configs.dressing")
+    end
+  }, -- improve vim ui's
   { "nvim-telescope/telescope-dap.nvim" },
   {
     -- smart telescope file searcher
@@ -219,7 +224,7 @@ lvim.plugins = {
       require('nvim-peekup.config').on_keystroke["delay"] = ''
     end
   },
-  { "delphinus/vim-firestore",  ft = { "firestore" } },
+  { "delphinus/vim-firestore", ft = { "firestore" } },
   {
     -- preview markdown, glow needs to be installed globally
     "npxbr/glow.nvim",
@@ -320,7 +325,7 @@ lvim.plugins = {
       require("user.plugins.configs.boole")
     end
   },
-  { "elihunter173/dirbuf.nvim", cmd = { "Dirbuf" } }, -- edit fs as a buffer
+  { "elihunter173/dirbuf.nvim",      cmd = { "Dirbuf" } }, -- edit fs as a buffer
   {
     -- folds
     'kevinhwang91/nvim-ufo',

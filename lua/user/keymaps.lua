@@ -211,6 +211,9 @@ lvim.builtin.which_key.mappings["l"]["m"] = { "<cmd>RenameState<cr>", "Rename Re
 lvim.builtin.which_key.vmappings["l"] = {
   ["r"] = {
     "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactoring"
+  },
+  ["a"] = {
+    "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action"
   }
 }
 
