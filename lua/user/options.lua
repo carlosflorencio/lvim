@@ -37,3 +37,7 @@ lvim.builtin.project.patterns = { ".git" }
 
 -- disable navic plugin, we use nvim-treesitter-context instead
 lvim.builtin.breadcrumbs.active = false
+
+-- disable errors on the same line, floating window should appear
+-- https://github.com/LunarVim/LunarVim/blob/ddc86f3a8aaa1afd36cf8f1a46a29a57922efc8a/lua/lvim/lsp/handlers.lua#L7
+lvim.lsp.diagnostics.virtual_text = false

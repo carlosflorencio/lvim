@@ -35,6 +35,3 @@ require("lvim.lsp.manager").setup("taplo")
 require("lvim.lsp.manager").setup("quick_lint_js")
 require("lvim.lsp.manager").setup("eslint")
 require("lvim.lsp.manager").setup("emmet_ls")
-
--- Disable virtual_text since it's redundant due to lsp_lines.
--- lvim.lsp.diagnostics.virtual_text = false

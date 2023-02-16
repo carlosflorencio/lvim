@@ -208,6 +208,7 @@ lvim.builtin.which_key.mappings["r"] = {
 }
 
 lvim.builtin.which_key.mappings["l"]["m"] = { "<cmd>RenameState<cr>", "Rename React Hooks args" }
+lvim.builtin.which_key.mappings["l"]["e"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open Diagnostic Float" }
 
 lvim.builtin.which_key.vmappings["l"] = {
   ["r"] = {

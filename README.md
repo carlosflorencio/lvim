@@ -28,6 +28,9 @@ Always a work in progress.
   - Update plugin commit hash at `~/.local/share/lunarvim/lvim/snapshots`
 
 - Update lvim core plugins:
+
   - nvim-tree
   - nvim-treesitter
   - indent-blankline.nvim
+
+- https://github.com/hrsh7th/vscode-langservers-extracted/releases release v4.6.0 breaks eslint-lsp
