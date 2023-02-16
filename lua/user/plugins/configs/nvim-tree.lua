@@ -6,6 +6,9 @@ lvim.builtin.nvimtree.setup.view.width = {
   min = 30,
   max = 40
 }
+
+lvim.builtin.nvimtree.setup.view.centralize_selection = true
+
 lvim.builtin.nvimtree.setup.renderer.highlight_opened_files = "all"
 lvim.builtin.nvimtree.setup.git.ignore = true
 lvim.builtin.nvimtree.setup.git.show_on_dirs = false
