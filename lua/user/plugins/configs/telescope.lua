@@ -50,6 +50,11 @@ lvim.builtin.telescope.extensions.live_grep_args = {
   -- layout_config = { mirror=true }, -- mirror preview pane
 }
 
+lvim.builtin.telescope.extensions.smart_open = {
+  ignore_patterns = { "*.git/*", "*/tmp/*", "*/dist/*" }
+}
+
+
 
 lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "dap")

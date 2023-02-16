@@ -147,7 +147,7 @@ lvim.builtin.which_key.mappings["c"] = {
   a = {
     name = "All",
     b = {
-      ":%bd|e#|bd#<cr>|'\"",
+      ":%bd|e#|bd#<cr>|'\"<cmd>NvimTreeOpen<cr><c-w><c-l>",
       "Close all buffers but the current one",
     }
   },
@@ -225,7 +225,7 @@ lvim.builtin.which_key.mappings[";"] = { "<cmd>lua require'lir.float'.toggle()<c
 lvim.builtin.which_key.mappings["'"] = { "<cmd>Dirbuf<cr>", "DirBuf" }
 lvim.builtin.which_key.mappings["j"] = {
   "<cmd>Telescope buffers show_all_buffers=true previewer=false ignore_current_buffer=true sort_mru=true<cr>",
-  "Find" }
+  "Open Buffers" }
 
 
 lvim.builtin.which_key.on_config_done = function(wk)

@@ -7,6 +7,7 @@ glance.setup({
     list = {
       ['j'] = actions.next_location,
       ['k'] = actions.previous_location,
+      ['x'] = actions.jump_split,
     },
   },
 })

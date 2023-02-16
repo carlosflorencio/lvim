@@ -14,6 +14,7 @@ lvim.plugins = {
   --     -- vim.cmd('colorscheme rose-pine')
   --   end
   -- },
+  -- { 'tiagovla/tokyodark.nvim' },
   {
     -- theme
     'uloco/bluloco.nvim',
@@ -143,10 +144,17 @@ lvim.plugins = {
     end
   },
   {
-    'tzachar/cmp-tabnine',
-    run = './install.sh',
-    requires = "hrsh7th/nvim-cmp",
+    -- buffers separated per tab
+    "tiagovla/scope.nvim",
+    config = function()
+      require("scope").setup()
+    end
   },
+  -- {
+  --   'tzachar/cmp-tabnine',
+  --   run = './install.sh',
+  --   requires = "hrsh7th/nvim-cmp",
+  -- },
   { "benfowler/telescope-luasnip.nvim" },
   {
     -- scratch files
