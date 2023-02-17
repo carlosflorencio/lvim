@@ -470,11 +470,7 @@ lvim.plugins = {
     requires = { "rcarriga/nvim-notify" },
     event = "BufRead",
     config = function()
-      require("CommitReminder").setup({
-        delay = 5,
-        required_changes = 20,
-        remind_on_save_only = true
-      })
+      require("user.plugins.configs.commit-reminder")
     end
   },
   { "karb94/neoscroll.nvim",
