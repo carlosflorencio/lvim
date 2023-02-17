@@ -36,6 +36,8 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.playground.enable = true
 
+lvim.builtin.treesitter.autotag = true
+
 -- important for correct tsx indentation
 lvim.builtin.treesitter.highlight.additional_vim_regex_highlighting = true
 lvim.builtin.treesitter.indent.enable = true

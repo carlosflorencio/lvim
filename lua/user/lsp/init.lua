@@ -11,7 +11,7 @@ lvim.lsp.installer.setup.ensure_installed = {
   "taplo", -- toml
   "quick_lint_js",
   "vimls",
-  "emmet_ls"
+  -- "emmet_ls"
 }
 
 require("user.lsp.null-ls.formatters")
@@ -20,7 +20,7 @@ require("user.lsp.null-ls.code_actions")
 
 -- Disable LSP server, don't forget to :LvimCacheReset
 ---@diagnostic disable-next-line: missing-parameter
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tailwindcss" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tailwindcss", "emmet_ls", "tsserver" })
 
 -- check https://github.com/abzcoding/lvim/blob/main/lua/user/builtin.lua#L286 to setup mappings per language server
 
@@ -34,4 +34,4 @@ require("lvim.lsp.manager").setup("marksman")
 require("lvim.lsp.manager").setup("taplo")
 require("lvim.lsp.manager").setup("quick_lint_js")
 require("lvim.lsp.manager").setup("eslint")
-require("lvim.lsp.manager").setup("emmet_ls")
+-- require("lvim.lsp.manager").setup("emmet_ls")

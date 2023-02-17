@@ -2,7 +2,7 @@
 
 -- Add "tsserver" to skipped servers - required for manual setup
 ---@diagnostic disable-next-line: missing-parameter
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 
 local capabilities = require("lvim.lsp").common_capabilities()
 
