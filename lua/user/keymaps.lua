@@ -189,6 +189,8 @@ lvim.builtin.which_key.vmappings["s"] = {
   p = { function() require("silicon").visualise_api({ to_clip = true }) end, "Silicon code screenshot" }
 }
 
+lvim.builtin.which_key.vmappings["i"] = { '<esc>`<i', "Insert at beginning selection" }
+lvim.builtin.which_key.vmappings["a"] = { '<esc>`>a', "Insert at end selection" }
 
 lvim.builtin.which_key.mappings["o"] = {
   name = "Organize",
