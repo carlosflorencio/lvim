@@ -55,6 +55,13 @@ lvim.plugins = {
 
   },
   {
+    -- show colorcolumn when line is too long
+    "m4xshen/smartcolumn.nvim",
+    config = function()
+      require("user.plugins.configs.smartcolumn")
+    end
+  },
+  {
     -- live grep certain dirs <c-k>
     "nvim-telescope/telescope-live-grep-args.nvim",
   },
@@ -340,7 +347,11 @@ lvim.plugins = {
       require("user.plugins.configs.boole")
     end
   },
-  { "elihunter173/dirbuf.nvim",      cmd = { "Dirbuf" } }, -- edit fs as a buffer
+  {
+    -- edit fs as a buffer
+    "elihunter173/dirbuf.nvim",
+    cmd = { "Dirbuf" },
+  },
   {
     -- folds
     'kevinhwang91/nvim-ufo',
