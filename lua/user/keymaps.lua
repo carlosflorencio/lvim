@@ -19,7 +19,11 @@ lvim.keys.normal_mode["gb"] = ":ls<CR>:b<Space>"
 -- lvim.keys.normal_mode["<s-tab>"] = ":bp!<cr>"
 
 -- Search and replace word under cursor using <F2>
-vim.cmd [[ nnoremap <F2> :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]]
+vim.cmd [[ nnoremap <F2> :%s/<C-r><C-w>//<Left>]]
+vim.keymap.set({ "n" }, "<F3>", function()
+  local path = vim.fn.fnameescape(vim.fn.expand('%:p:.'))
+  require('spectre').open_visual({ select_word = true, path = path })
+end)
 
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
 
