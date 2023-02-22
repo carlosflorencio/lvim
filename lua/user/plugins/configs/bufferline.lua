@@ -24,6 +24,7 @@ lvim.builtin.bufferline.options.mode = "tabs"
 lvim.builtin.bufferline.options.custom_filter = custom_filter
 lvim.builtin.bufferline.options.sort_by = "tabs"
 lvim.builtin.bufferline.options.show_tab_indicators = false
+lvim.builtin.bufferline.options.always_show_bufferline = true
 lvim.builtin.bufferline.options.show_buffer_close_icons = false
 lvim.builtin.bufferline.options.separator_style = "thick"
 lvim.builtin.bufferline.options.indicator = {
