@@ -25,6 +25,11 @@ vim.keymap.set({ "n" }, "<F3>", function()
   require('spectre').open_visual({ select_word = true, path = path })
 end)
 
+-- vim.cmd [[
+-- imap <silent><script><expr> <C-space> copilot#Accept("\<CR>")
+-- let g:copilot_no_tab_map = v:true
+-- ]]
+
 lvim.keys.visual_mode["<C-p>"] = "y'>p"
 
 -- Regex explainer hide
@@ -41,6 +46,8 @@ vim.keymap.set({ "n", "i" }, "<c-v>", "<esc><cmd>Telescope yank_history initial_
 vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)") -- prevent going up when yanking
 
 -- jumps / cycles
+lvim.keys.normal_mode["]m"] = "<Plug>(Marks-next)"
+lvim.keys.normal_mode["[m"] = "<Plug>(Marks-prev)"
 lvim.keys.normal_mode["]e"] = vim.diagnostic.goto_next
 lvim.keys.normal_mode["[e"] = vim.diagnostic.goto_prev
 lvim.keys.normal_mode["]c"] = "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>"
@@ -82,8 +89,8 @@ lvim.lsp.buffer_mappings.normal_mode["K"] = { function()
 end, "Hover LSP or UFO peek" }
 
 -- move the cursor without leaving insert mode
-lvim.keys.insert_mode["<A-h>"] = "<Left>"
-lvim.keys.insert_mode["<A-l>"] = "<Right>"
+-- lvim.keys.insert_mode["<A-h>"] = "<Left>"
+-- lvim.keys.insert_mode["<A-l>"] = "<Right>"
 
 lvim.builtin.which_key.mappings["h"] = {
   name = "misc",

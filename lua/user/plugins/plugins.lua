@@ -22,11 +22,15 @@ lvim.plugins = {
   },
   -- { "catppuccin/nvim", as = "catppuccin" }, -- theme
 
+  { "hrsh7th/cmp-cmdline" },
+  { "hrsh7th/cmp-nvim-lsp-signature-help" },
+  -- { 'hrsh7th/cmp-path' }, -- already in use by lunarvim
+
   {
-    -- auto complete & preview for :, /, ?
-    'gelguy/wilder.nvim',
+    -- improved marks
+    "chentoast/marks.nvim",
     config = function()
-      require("user.plugins.configs.wilder")
+      require 'marks'.setup()
     end
   },
   { "wellle/targets.vim" }, -- motions for arguments, di, etc
@@ -134,6 +138,17 @@ lvim.plugins = {
       require('image').setup()
     end
   },
+  {
+    -- when renaming files on nvim-tree, update imports through the LSP
+    'antosha417/nvim-lsp-file-operations',
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "kyazdani42/nvim-tree.lua" },
+    },
+    config = function()
+      require("lsp-file-operations").setup()
+    end
+  },
   -- {
   --   -- session management
   --   "gennaro-tedesco/nvim-possession",
@@ -157,11 +172,13 @@ lvim.plugins = {
       require("scope").setup()
     end
   },
-  -- {
-  --   'tzachar/cmp-tabnine',
-  --   run = './install.sh',
-  --   requires = "hrsh7th/nvim-cmp",
-  -- },
+  { "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("user.plugins.configs.copilot")
+    end,
+  },
   { "benfowler/telescope-luasnip.nvim" },
   {
     -- scratch files
@@ -560,13 +577,13 @@ lvim.plugins = {
       require("user.plugins.configs.silicon")
     end
   },
-  {
-    -- improved autocomplete on functions
-    "ray-x/lsp_signature.nvim",
-    config = function()
-      require("user.plugins.configs.lsp_signature")
-    end,
-  },
+  -- {
+  --   -- improved autocomplete on functions
+  --   "ray-x/lsp_signature.nvim",
+  --   config = function()
+  --     require("user.plugins.configs.lsp_signature")
+  --   end,
+  -- },
   {
     -- highlight colors
     'NvChad/nvim-colorizer.lua',
