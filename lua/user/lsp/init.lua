@@ -20,13 +20,14 @@ require("user.lsp.null-ls.code_actions")
 
 -- Disable LSP server, don't forget to :LvimCacheReset
 ---@diagnostic disable-next-line: missing-parameter
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tailwindcss", "emmet_ls", "tsserver" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tailwindcss", "emmet_ls", "tsserver", "yamlls" })
 
 -- check https://github.com/abzcoding/lvim/blob/main/lua/user/builtin.lua#L286 to setup mappings per language server
 
 -- Manually setup (each should add himself to the skipped_servers list)
 require("user.lsp.providers.denols")
 require("user.lsp.providers.tsserver")
+require("user.lsp.providers.yamlls")
 -- require("user.lsp.providers.jsonls")
 
 -- Enable the ones missing on lunar vim ftplugin/filetype
